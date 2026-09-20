@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>9. Sınıf Ders Notları</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fce4ec;
+            color: #333;
+        }
+
+        nav {
+            background: #ad1457;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd6e7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ec407a, #ad1457);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .buton {
+            display: inline-block;
+            background: white;
+            color: #ad1457;
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ad1457;
+            margin-bottom: 30px;
+        }
+
+        .arama {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #aramaInput {
+            width: 90%;
+            max-width: 600px;
+            padding: 14px;
+            border: 2px solid #ec407a;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .dersler {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ders {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .ders:hover {
+            transform: translateY(-5px);
+        }
+
+        .ders h3 {
+            color: #ad1457;
+        }
+
+        .ders a {
+            display: inline-block;
+            margin-top: 10px;
+            background: #ec407a;
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 20px;
+        }
+
+        .notlar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .not {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .not h3 {
+            color: #ad1457;
+            border-bottom: 2px solid #f8bbd0;
+            padding-bottom: 10px;
+        }
+
+        .not h4 {
+            color: #ec407a;
+            margin-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        .not p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .not ul {
+            line-height: 1.7;
+        }
+
+        .dersFoto {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .onemli {
+            background: #fce4ec;
+            border-left: 5px solid #ec407a;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .soru {
+            background: #fff3f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .cevap {
+            display: none;
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .cevapButon {
+            background: #ad1457;
+            color: white;
+            border: none;
+            padding: 9px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .ipuclari {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .ipucu {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .quiz {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .quizButton {
+            background: #ec407a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #sonuc {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ad1457;
+        }
+
+        .hakkinda {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #ad1457;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .yukari {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #ad1457;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .dersler {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .notlar {
+                grid-template-columns: 1fr;
+            }
+
+            .ipuclari {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .dersler {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body id="bas">
+
+<nav>
+    <a href="#bas">Ana Sayfa</a>
+    <a href="#dersler">Dersler</a>
+    <a href="#notlar">Notlar</a>
+    <a href="#ipuclari">Çalışma İpuçları</a>
+    <a href="#hakkinda">Hakkında</a>
+</nav>
+
+<div class="hero">
+    <h1>📚 9. Sınıf Ders Notları</h1>
+    <p>Matematikten İngilizceye kadar 9. sınıf dersleri için düzenli ve anlaşılır ders notları.</p>
+    <a class="buton" href="#dersler">Derslere Göz At</a>
+</div>
+
+<section id="dersler">
+    <h2>📖 Dersler</h2>
+
+    <div class="arama">
+        <input
+            type="text"
+            id="aramaInput"
+            placeholder="Ders veya konu ara..."
+            onkeyup="ara()"
+        >
+    </div>
+
+    <div class="dersler">
+
+        <div class="ders aranabilir">
+            <h3>📐 Matematik</h3>
+            <p>Sayılar, fonksiyonlar, denklemler, geometri ve veri.</p>
+            <a href="#matematik">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>⚡ Fizik</h3>
+            <p>Fizik bilimi, kuvvet ve hareket, akışkanlar ve enerji.</p>
+            <a href="#fizik">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>🧪 Kimya</h3>
+            <p>Kimya, atom, periyodik tablo, etkileşimler ve sürdürülebilirlik.</p>
+            <a href="#kimya">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>🧬 Biyoloji</h3>
+            <p>Yaşam, canlıların özellikleri, moleküller, hücre ve organizasyon.</p>
+            <a href="#biyoloji">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>📖 Türk Dili ve Edebiyatı</h3>
+            <p>Edebiyat, metin, anlam, anlatım ve edebî türler.</p>
+            <a href="#edebiyat">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>🏛️ Tarih</h3>
+            <p>Tarih bilimi, geçmiş, kaynaklar ve eski medeniyetler.</p>
+            <a href="#tarih">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>🌍 Coğrafya</h3>
+            <p>Haritalar, doğal sistemler, nüfus, ekonomi ve afetler.</p>
+            <a href="#cografya">Notlara Git</a>
+        </div>
+
+        <div class="ders aranabilir">
+            <h3>🇬🇧 İngilizce</h3>
+            <p>School Life, Personal Life, Family Life, Nature ve Future.</p>
+            <a href="#ingilizce">Notlara Git</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="notlar">
+    <h2>📝 Ders Notları</h2>
+
+    <div class="notlar">
+
+        <!-- MATEMATİK -->
+        <div class="not aranabilir" id="matematik">
+
+            <h3>📐 Matematik - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=85"
+                 alt="Matematik ve geometri">
+
+            <h4>1. Sayılar</h4>
+
+            <p>Sevgili öğrenciler, sayılar matematiğin temel yapı taşlarından biridir. Günlük hayatta yaptığımız sayma, ölçme, karşılaştırma ve hesaplama işlemlerinin tamamında sayılardan yararlanırız. Bu nedenle sayı kümelerini ve sayıların özelliklerini iyi öğrenmek, ilerleyen matematik konularını anlamamız açısından oldukça önemlidir.</p>
+
+            <p>Doğal sayılar 0, 1, 2, 3, 4, ... şeklinde devam eden sayılardır. Doğal sayılar özellikle sayma işlemlerinde kullanılır. Tam sayılar ise negatif tam sayıları, sıfırı ve pozitif tam sayıları kapsar. Örneğin -5, -2, 0, 3 ve 8 birer tam sayıdır.</p>
+
+            <p>Rasyonel sayılar iki tam sayının birbirine oranı şeklinde ifade edilebilen sayılardır. a/b biçimindeki gösterimde a ve b tam sayı, b ise sıfırdan farklı olmalıdır. 3/5, -7/2 ve 4 gibi sayılar rasyonel sayılara örnek olarak verilebilir.</p>
+
+            <p>İrrasyonel sayılar ise iki tam sayının oranı biçiminde yazılamayan gerçek sayılardır. √2 ve π irrasyonel sayılara örnek olarak gösterilebilir. Rasyonel ve irrasyonel sayıların tamamı gerçek sayıları oluşturur.</p>
+
+            <p>Sayıları karşılaştırırken sayı doğrusundan yararlanabiliriz. Sayı doğrusunda sağa doğru ilerledikçe sayılar büyür, sola doğru ilerledikçe sayılar küçülür. Özellikle negatif sayıları karşılaştırırken bu düşünce öğrenciler için oldukça kullanışlıdır.</p>
+
+            <p>Mutlak değer de sayılar konusunda dikkat edilmesi gereken önemli kavramlardan biridir. Bir sayının mutlak değeri, o sayının sıfıra olan uzaklığını gösterir. Bu nedenle mutlak değer sonucu negatif olamaz. Örneğin |-6| = 6 ve |6| = 6 olur.</p>
+
+            <p>Öğretmeniniz olarak sizden özellikle sayı kümelerini birbirine karıştırmamanızı ve bir sayının hangi kümelere ait olduğunu gerekçesiyle açıklayabilmenizi beklerim. Konuyu öğrenirken yalnızca tanımları ezberlemek yerine sayı doğrusu üzerinde örnekler yapmanız daha kalıcı bir öğrenme sağlayacaktır.</p>
+
+            <h4>2. Üslü İfadeler</h4>
+
+            <p>Üslü ifadeler, aynı sayının kendisiyle tekrar tekrar çarpılmasını kısa ve düzenli bir biçimde göstermemizi sağlar. aⁿ gösteriminde a taban, n ise üs olarak adlandırılır. Örneğin 2⁴ ifadesi 2 sayısının dört kez çarpılması anlamına gelir ve 16'ya eşittir.</p>
+
+            <p>Üslü ifadelerde aynı tabanlı sayıların çarpımında üsler toplanır. aᵐ · aⁿ = aᵐ⁺ⁿ kuralı bu işlemlerde temel kurallardan biridir. Örneğin 2³ · 2² işlemi 2⁵ şeklinde yazılabilir.</p>
+
+            <p>Aynı tabanlı üslü ifadeler bölündüğünde üsler birbirinden çıkarılır. aᵐ / aⁿ = aᵐ⁻ⁿ kuralında tabanın sıfırdan farklı olması gerekir. Bu kuralı kullanırken pay ve paydadaki tabanların aynı olduğundan emin olmalısınız.</p>
+
+            <p>Bir üslü ifadenin tekrar üssü alındığında üsler çarpılır. (aᵐ)ⁿ = aᵐⁿ bağıntısı burada kullanılır. Örneğin (2³)² işlemi 2⁶ şeklinde düzenlenebilir.</p>
+
+            <p>Sıfırıncı kuvvet konusunda da dikkatli olmalıyız. Sıfırdan farklı bir sayının sıfırıncı kuvveti 1'dir. Yani a⁰ = 1 olur. Buradaki temel şart a'nın sıfırdan farklı olmasıdır.</p>
+
+            <p>Negatif üsler de bir sayının çarpmaya göre tersini ifade eder. a⁻ⁿ = 1/aⁿ şeklinde yazılabilir. Bu nedenle negatif üs gördüğünüzde ifadenin pay ve payda durumunu dikkatli incelemeniz gerekir.</p>
+
+            <p>Üslü ifadelerde işlem yaparken en sık yapılan hata üslerle tabanları birbirine karıştırmaktır. İşlem yapmadan önce tabanı ve üssü belirleyin, ardından uygun kuralı uygulayın. Kuralları ezberlemek kadar hangi durumda kullanılacağını anlamanız da önemlidir.</p>
+
+            <h4>3. Köklü İfadeler</h4>
+
+            <p>Köklü ifadeler, özellikle bir sayının hangi sayının karesi olduğunu belirlemek için kullanılır. √a gösteriminde a kök içindeki sayı, √ ise karekök sembolüdür. Örneğin √25 = 5'tir çünkü 5² = 25 olur.</p>
+
+            <p>Kök içindeki sayı tam kare olduğunda kök dışına tam olarak çıkabilir. 36, 49 ve 64 gibi sayılar tam kare sayılara örnektir. Örneğin √49 = 7 şeklinde işlem yapılır.</p>
+
+            <p>Kök içindeki sayılar çarpıldığında uygun koşullarda kökler birleştirilebilir. √a · √b = √ab bağıntısı bu işlemlerde kullanılır. Ancak işlem yaparken kök içindeki sayıların ve işlemin tanım kümesinin uygun olup olmadığına dikkat etmek gerekir.</p>
+
+            <p>Köklü ifadelerde sadeleştirme yaparken kök içindeki sayıyı çarpanlarına ayırmak oldukça faydalıdır. Örneğin √72 ifadesi √36 · √2 şeklinde düşünülebilir ve sonuç 6√2 olarak sadeleştirilebilir.</p>
+
+            <p>Köklü ifadelerin yaklaşık değerlerini bulmak için sayının hangi iki tam kare arasında bulunduğuna bakabiliriz. Örneğin √20 sayısı 4² = 16 ile 5² = 25 arasında olduğundan 4 ile 5 arasındadır.</p>
+
+            <p>Kök işlemlerinde öğrencilerin dikkat etmesi gereken en önemli noktalardan biri, kök dışındaki katsayılarla kök içindeki sayıların birbirinden farklı olduğudur. İşlem sırasında bu iki bölümü doğru ayırmanız gerekir.</p>
+
+            <p>Bu konuda başarılı olmak için tam kare sayıları iyi bilmenizi ve köklü ifadeleri sadeleştirme işlemlerini bol örnekle çalışmanızı tavsiye ederim. İşlemleri acele etmeden adım adım yapmanız hata yapma ihtimalinizi azaltacaktır.</p>
+
+            <h4>4. Doğrusal Fonksiyonlar</h4>
+
+            <p>Fonksiyon, bir kümenin elemanlarını belirli bir kurala göre başka bir kümenin elemanlarıyla ilişkilendiren matematiksel yapıdır. 9. sınıf düzeyinde fonksiyon kavramını öğrenirken özellikle giriş ve çıkış değerleri arasındaki ilişkiyi anlamanız gerekir.</p>
+
+            <p>Doğrusal fonksiyonlar genel olarak f(x) = ax + b biçiminde ifade edilebilir. Burada a ve b sabit sayılardır. x değişkenine farklı değerler verildiğinde fonksiyonun aldığı değer değişir.</p>
+
+            <p>Doğrusal fonksiyonların grafikleri koordinat düzleminde bir doğru şeklinde gösterilir. Doğrunun eğimi, x değerindeki değişime karşılık y değerinin nasıl değiştiğini gösterir. Bu nedenle eğim kavramı doğrusal fonksiyonları anlamada önemlidir.</p>
+
+            <p>Eğim pozitif olduğunda doğru soldan sağa doğru yükselir. Eğim negatif olduğunda doğru soldan sağa doğru alçalır. Eğimin sıfır olması durumunda ise grafik yatay bir doğru şeklindedir.</p>
+
+            <p>Fonksiyonların grafikleri yalnızca matematiksel işlemleri göstermek için kullanılmaz. Günlük hayatta zaman ve mesafe, ürün miktarı ve ücret gibi iki değişken arasındaki ilişkiler grafiklerle modellenebilir.</p>
+
+            <p>Bir fonksiyonun tanım kümesi, fonksiyona girdi olarak verilebilecek değerleri ifade eder. Görüntü kümesi ise fonksiyonun elde ettiği sonuçlarla ilişkilidir. Bu kavramları karıştırmamak için fonksiyonu bir makine gibi düşünmek yararlı olabilir.</p>
+
+            <p>Öğretmeniniz olarak sizden bir fonksiyonun cebirsel gösterimi ile grafiği arasında ilişki kurabilmenizi beklerim. Sadece formülü ezberlemek yerine verilen bir grafikten fonksiyon hakkında yorum yapmaya çalışmanız konuyu daha iyi anlamanızı sağlayacaktır.</p>
+
+            <h4>5. Mutlak Değer</h4>
+
+            <p>Mutlak değer, bir gerçek sayının sıfıra olan uzaklığını ifade eder. Uzaklık kavramı kullanıldığı için sonuç her zaman sıfır veya pozitif olur. Bu nedenle bir sayının mutlak değerinin negatif olması mümkün değildir.</p>
+
+            <p>Pozitif bir sayının mutlak değeri kendisine eşittir. Örneğin |7| = 7 olur. Negatif bir sayının mutlak değeri ise işareti kaldırılarak pozitif biçimde yazılır. Örneğin |-7| = 7 şeklindedir.</p>
+
+            <p>Mutlak değeri sayı doğrusu üzerinde düşünmek konuyu kolaylaştırır. -5 ve 5 sayıları sıfıra eşit uzaklıkta olduğu için mutlak değerleri aynıdır. Bu durum mutlak değerin uzaklık anlamını açıkça gösterir.</p>
+
+            <p>Mutlak değerli denklemlerde bilinmeyenin sıfıra olan uzaklığı incelenir. Örneğin |x| = 4 olduğunda x'in 4 veya -4 olabileceği görülür. Çünkü her iki sayı da sıfıra dört birim uzaklıktadır.</p>
+
+            <p>Mutlak değerli eşitsizliklerde de uzaklık düşüncesinden yararlanılır. |x| < 3 ifadesi, x'in sıfıra uzaklığının 3'ten küçük olduğunu belirtir. Bu nedenle çözüm aralığını sayı doğrusu üzerinde göstermek oldukça faydalıdır.</p>
+
+            <p>Bu konuda öğrencilerin en sık yaptığı hata, mutlak değeri yalnızca negatif sayıların işaretini değiştirmek olarak düşünmektir. Oysa mutlak değerin temel anlamı uzaklıktır ve bu düşünce tüm işlemlerde yol gösterici olur.</p>
+
+            <p>Mutlak değer sorularında önce ifadenin ne anlattığını anlamanızı, daha sonra işlemi yapmanızı öneririm. Özellikle sayı doğrusu çizerek çalışırsanız konu daha anlaşılır hâle gelecektir.</p>
+
+            <h4>6. Denklem ve Eşitsizlikler</h4>
+
+            <p>Denklemler, içinde bilinmeyen bulunan ve iki ifadenin eşit olduğunu gösteren matematiksel ifadelerdir. Denklem çözerken amacımız bilinmeyenin hangi değeri veya değerleri aldığını bulmaktır.</p>
+
+            <p>Birinci dereceden basit denklemlerde bilinmeyeni yalnız bırakmak temel amaçtır. Bunun için eşitliğin her iki tarafına aynı işlem uygulanabilir. Böylece eşitlik bozulmadan bilinmeyenin değeri bulunur.</p>
+
+            <p>Eşitsizliklerde ise iki ifade arasındaki büyüklük veya küçüklük ilişkisi incelenir. Küçüktür, büyüktür, küçük eşittir ve büyük eşittir sembolleri kullanılır. Çözüm çoğu zaman tek bir sayı yerine bir sayı aralığından oluşur.</p>
+
+            <p>Eşitsizlik çözerken özellikle negatif bir sayıyla çarpma veya bölme işlemine dikkat edilmelidir. Eşitsizliğin her iki tarafı negatif bir sayıyla çarpıldığında veya bölündüğünde eşitsizlik sembolünün yönü değişir.</p>
+
+            <p>Denklem ve eşitsizliklerde işlem sırasına dikkat etmek gerekir. Önce parantezler, ardından uygun cebirsel işlemler yapılmalıdır. Her adımın neden yapıldığını bilmek, yalnızca sonucu bulmaktan daha önemlidir.</p>
+
+            <p>Bulduğunuz çözümü mutlaka başlangıçtaki denklem veya eşitsizlikte kontrol etmenizi tavsiye ederim. Kontrol işlemi, yaptığınız cebirsel işlemlerde hata olup olmadığını görmenize yardımcı olur.</p>
+
+            <p>Bu konunun temelinde eşitlik ve karşılaştırma düşüncesi vardır. Soruyu çözerken acele etmeyin, bilinmeyeni belirleyin ve işlemleri sırayla uygulayın. Düzenli yazılan bir çözüm hem sizin hem de öğretmeninizin işlemi takip etmesini kolaylaştırır.</p>
+
+            <h4>7. Geometrik Şekiller ve Üçgenler</h4>
+
+            <p>Geometri, şekillerin özelliklerini, birbirleriyle ilişkilerini ve ölçülerini inceleyen matematik alanıdır. 9. sınıfta temel geometrik kavramları kullanarak üçgenlerin ve çeşitli şekillerin özelliklerini incelemeye başlarız.</p>
+
+            <p>Üçgen üç kenarı ve üç köşesi bulunan kapalı bir geometrik şekildir. Bir üçgenin iç açıları toplamı her zaman 180 derecedir. Bu özellik üçgen sorularının büyük bölümünde temel olarak kullanılır.</p>
+
+            <p>Üçgenler kenarlarına veya açılarına göre sınıflandırılabilir. Kenarlarına göre eşkenar, ikizkenar ve çeşitkenar üçgenler; açılarına göre dar açılı, dik açılı ve geniş açılı üçgenler bulunur.</p>
+
+            <p>Dik üçgende dik açının karşısındaki kenara hipotenüs adı verilir. Pisagor bağıntısı dik üçgenlerde a² + b² = c² şeklinde kullanılır. Burada c hipotenüs uzunluğunu ifade eder.</p>
+
+            <p>Geometrik problemlerde şekli doğru çizmek çözümün önemli bir parçasıdır. Verilen uzunlukları ve açıları şeklin üzerinde göstermek, hangi bağıntının kullanılacağını anlamayı kolaylaştırır.</p>
+
+            <p>Üçgenlerde açı ve kenar ilişkilerini öğrenirken yalnızca formül ezberlemek yeterli değildir. Verilen bilgilerin birbirleriyle nasıl ilişkilendiğini görmeniz gerekir. Böylece farklı soru tiplerinde de öğrendiğiniz bilgileri kullanabilirsiniz.</p>
+
+            <p>Geometri sorularında işlem kadar şekli okumak da önemlidir. Öğretmeniniz olarak sizden verilen bilgileri şekle aktarmanızı ve çözümünüzü adım adım açıklamanızı beklerim. Düzenli çizim yapmak bu konuda size büyük kolaylık sağlayacaktır.</p>
+
+            <h4>8. Veri ve İstatistik</h4>
+
+            <p>İstatistik, elde edilen verileri düzenleme, inceleme ve yorumlama sürecinde kullanılan matematiksel yöntemlerle ilgilenir. Günlük hayatta anket sonuçları, sınav puanları, sıcaklık değerleri ve nüfus bilgileri gibi birçok veriyle karşılaşırız.</p>
+
+            <p>Aritmetik ortalama, veri grubundaki bütün değerlerin toplanıp veri sayısına bölünmesiyle bulunur. Örneğin 4, 6 ve 8 sayılarının aritmetik ortalaması 18/3 yani 6'dır.</p>
+
+            <p>Ortanca veya medyan, veriler küçükten büyüğe sıralandığında ortada kalan değerdir. Veri sayısı çift olduğunda ortadaki iki değerin aritmetik ortalaması alınır.</p>
+
+            <p>Tepe değer veya mod, veri grubunda en fazla tekrar eden değerdir. Bir veri grubunda birden fazla tepe değer bulunabileceği gibi hiç tepe değer bulunmaması da mümkündür.</p>
+
+            <p>Verileri yorumlarken yalnızca tek bir değere bakmak doğru olmayabilir. Verilerin genel dağılımını, birbirinden ne kadar uzak olduklarını ve hangi değerlerin tekrar ettiğini de dikkate almak gerekir.</p>
+
+            <p>Grafikler ve tablolar verileri daha anlaşılır hâle getirir. Bir grafiği incelerken öncelikle başlığına, eksenlerine ve kullanılan ölçü birimlerine bakmalısınız. Daha sonra verilen değerleri karşılaştırabilirsiniz.</p>
+
+            <p>İstatistik konusunda en önemli nokta veriyi doğru okumaktır. Bir tablo veya grafik size bilgi verirken bu bilgiyi yanlış yorumlamamak gerekir. Sorularda verilen tüm verileri dikkatlice incelemenizi ve sonucunuzu veriye dayandırmanızı beklerim.</p>
+
+            <div class="onemli">
+                <b>Önemli:</b> Matematikte formülü ezberlemek kadar, formülün hangi durumda kullanılacağını anlamak da önemlidir.
+            </div>
+
+            <div class="soru">
+                <b>Örnek:</b> |-8| + |3| kaçtır?
+                <br><br>
+                <button class="cevapButon" onclick="cevapGoster('matCevap')">
+                    Cevabı Göster
+                </button>
+                <div class="cevap" id="matCevap">11</div>
+            </div>
+
+        </div>
+
+
+        <!-- FİZİK -->
+        <div class="not aranabilir" id="fizik">
+
+            <h3>⚡ Fizik - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"
+                 alt="Bilim ve fizik">
+
+            <h4>1. Fizik Bilimi ve Kariyer Keşfi</h4>
+
+            <p>Fizik, doğada gerçekleşen olayları anlamaya ve açıklamaya çalışan temel bilim dallarından biridir. Madde, enerji, hareket, kuvvet ve etkileşimler fizik biliminin çalışma alanları arasında yer alır. Fizik sayesinde çevremizde gerçekleşen birçok olayı bilimsel olarak açıklayabiliriz.</p>
+
+            <p>Fizik biliminin farklı çalışma alanları vardır. Mekanik hareket ve kuvvetleri, optik ışık olaylarını, termodinamik ısı ve enerji ilişkilerini, elektromanyetizma ise elektrik ve manyetizma olaylarını inceler.</p>
+
+            <p>Fizik diğer bilim dallarıyla da yakın ilişki içindedir. Matematik fiziksel olayların modellenmesinde ve hesaplamalarda kullanılır. Kimya, biyoloji, astronomi ve mühendislik gibi alanlarda da fizik bilgisinden yararlanılır.</p>
+
+            <p>Bilimsel çalışmalar yapılırken gözlem, ölçüm, deney ve verilerin değerlendirilmesi önemlidir. Fizikte elde edilen sonuçların güvenilir olması için ölçümlerin uygun araçlarla ve dikkatli biçimde yapılması gerekir.</p>
+
+            <p>Fizik alanında çalışan bilim insanları doğadaki olayları anlamaya yönelik araştırmalar yaparlar. Bu çalışmalar sonucunda elde edilen bilgiler teknoloji alanında da kullanılabilir. Günümüzde birçok teknolojik ürünün temelinde fizik bilgisi bulunmaktadır.</p>
+
+            <p>Fizik eğitimi yalnızca formül öğrenmekten ibaret değildir. Bir olayın neden gerçekleştiğini sorgulamak, gözlem yapmak ve elde edilen verilerden sonuç çıkarmak da fizik öğrenmenin önemli parçalarıdır.</p>
+
+            <p>Öğretmeniniz olarak sizden fizik konularını günlük yaşamla ilişkilendirmenizi beklerim. Çevrenizde gördüğünüz bir hareketi, ışık olayını veya enerji dönüşümünü fizik açısından düşünmeye başladığınızda dersin çok daha anlaşılır olduğunu göreceksiniz.</p>
+
+            <h4>2. Fiziksel Nicelikler</h4>
+
+            <p>Fizikte olayları açıklayabilmek için ölçülebilen büyüklüklerden yararlanılır. Bu büyüklüklere fiziksel nicelik adı verilir. Uzunluk, zaman, kütle ve sıcaklık günlük yaşamda sık karşılaştığımız fiziksel niceliklerdendir.</p>
+
+            <p>Temel nicelikler başka niceliklerden yararlanılmadan tanımlanabilen niceliklerdir. Uzunluk metre, kütle kilogram ve zaman saniye gibi birimlerle ifade edilir. Bu birimler uluslararası ölçüm sisteminin düzenli kullanılmasını sağlar.</p>
+
+            <p>Türetilmiş nicelikler ise temel nicelikler kullanılarak oluşturulur. Örneğin sürat, alınan yolun zamana oranı ile bulunur. Alan ve hacim de temel niceliklerden türetilen niceliklere örnek verilebilir.</p>
+
+            <p>Bir fiziksel niceliği ifade ederken yalnızca sayı yazmak çoğu zaman yeterli değildir. Ölçümün birimini de belirtmek gerekir. Örneğin 5 ifadesi tek başına anlam bakımından eksik olabilirken 5 metre belirli bir fiziksel büyüklüğü ifade eder.</p>
+
+            <p>Ölçüm araçlarının doğru kullanılması da önemlidir. Uzunluk cetvel veya metre ile, zaman saat veya kronometre ile ölçülebilir. Ölçüm sırasında aracın ölçeğini doğru okumak gerekir.</p>
+
+            <p>Fizikte büyüklükleri karşılaştırırken aynı birim sistemini kullanmak işlemleri kolaylaştırır. Farklı birimlerde verilen değerler önce uygun birimlere dönüştürülmelidir.</p>
+
+            <p>Bu nedenle fizik sorularında verilenleri, isteneni ve birimleri ayrı ayrı belirlemenizi tavsiye ederim. Birimlere dikkat etmek birçok işlem hatasının önüne geçer.</p>
+
+            <h4>3. Kuvvet ve Hareket</h4>
+
+            <p>Hareket, bir cismin seçilen referans noktasına göre konumunun zaman içinde değişmesidir. Bir cismin hareketli veya hareketsiz olduğunu söyleyebilmek için bir referans noktası belirlememiz gerekir.</p>
+
+            <p>Alınan yol, cismin hareketi boyunca kat ettiği toplam mesafeyi ifade eder. Sürat ise alınan yolun zamana oranıdır. Ortalama sürat, toplam yolun toplam zamana bölünmesiyle hesaplanır.</p>
+
+            <p>Kuvvet, cisimlerin hareket durumunu veya şeklini değiştirebilen etkidir. Kuvvetin büyüklüğü ve yönü bulunabilir. Bir cisme farklı yönlerde kuvvetler uygulanıyorsa bu kuvvetlerin birlikte değerlendirilmesi gerekir.</p>
+
+            <p>Dengelenmiş kuvvetlerde cismin hareket durumu değişmeyebilir. Dengelenmemiş kuvvetlerde ise cismin hareketinde değişiklik meydana gelebilir. Bu nedenle kuvvetleri yalnızca büyüklük açısından değil, yön açısından da değerlendirmeliyiz.</p>
+
+            <p>Hareketi anlamada grafiklerden de yararlanılır. Konum-zaman veya hız-zaman gibi grafiklerde eksenlerin neyi gösterdiği dikkatlice incelenmelidir. Grafiğin eğimi ve değişimi fiziksel olay hakkında bilgi verebilir.</p>
+
+            <p>Günlük hayatta yürümek, bisiklete binmek, araçların hareket etmesi ve topun yuvarlanması gibi birçok olay kuvvet ve hareketle ilişkilidir. Bu olayları gözlemleyerek fizik bilgimizi günlük yaşamla ilişkilendirebiliriz.</p>
+
+            <p>Bu konuda problem çözerken verilen bilgileri düzenli yazmanız ve birimleri kontrol etmeniz gerekir. Özellikle yol, zaman ve sürat arasındaki ilişkiyi iyi anlamanızı beklerim.</p>
+
+            <h4>4. Akışkanlar</h4>
+
+            <p>Sıvılar ve gazlar akışkan maddeler olarak adlandırılır. Akışkanların belirli bir şekli yoktur ve bulundukları kabın şeklini alabilirler. Bu özellikleri nedeniyle akışkanların davranışları katılardan farklıdır.</p>
+
+            <p>Basınç, bir yüzeye dik olarak etki eden kuvvetin yüzey alanına oranıyla ilişkilidir. Aynı kuvvet daha küçük bir alana uygulandığında basınç daha büyük olabilir. Bu nedenle yüzey alanı basınç üzerinde önemli bir etkiye sahiptir.</p>
+
+            <p>Sıvı basıncı sıvının yoğunluğu, yer çekimi ve derinlik gibi faktörlerle ilişkilidir. Aynı sıvı içinde derinlik arttıkça sıvı basıncı da artar. Bu nedenle su altında daha derin noktalarda basınç daha fazladır.</p>
+
+            <p>Kaldırma kuvveti, akışkan içine bırakılan cisme akışkan tarafından uygulanan yukarı yönlü kuvvettir. Bir cismin sıvıda batması, yüzmesi veya askıda kalması çeşitli kuvvetlerin karşılaştırılmasıyla açıklanabilir.</p>
+
+            <p>Gazlar da basınç oluşturur. Atmosferde bulunan gazların oluşturduğu basınca atmosfer basıncı adı verilir. Günlük hayatta pipet kullanmak gibi bazı olaylar basınç farklarıyla açıklanabilir.</p>
+
+            <p>Akışkanlar konusu günlük yaşamla doğrudan ilişkilidir. Barajların tasarımı, deniz araçlarının yüzmesi ve uçakların hareketi gibi birçok olay akışkanlarla ilgili fiziksel ilkelerle açıklanabilir.</p>
+
+            <p>Öğretmeniniz olarak sizden basınç kavramını yalnızca formül olarak değil, günlük yaşamda gözlemlediğiniz olaylarla birlikte düşünmenizi beklerim. Özellikle derinlik, yüzey alanı ve kuvvet arasındaki ilişkiye dikkat etmelisiniz.</p>
+
+            <h4>5. Enerji</h4>
+
+            <p>Enerji, fiziksel sistemlerin iş yapabilme kapasitesiyle ilişkilendirilen temel bir kavramdır. Çevremizde gerçekleşen hareket, ısınma, aydınlanma ve elektrik kullanımı gibi olayların tamamında enerji kavramıyla karşılaşabiliriz.</p>
+
+            <p>Kinetik enerji hareket hâlindeki cisimlerle ilişkilidir. Bir cismin kütlesi ve hareketinin büyüklüğü kinetik enerjisi üzerinde etkilidir. Hareket eden bir araç buna günlük hayattan örnek olarak verilebilir.</p>
+
+            <p>Potansiyel enerji ise cismin konumu veya bulunduğu durum nedeniyle sahip olduğu enerjiyle ilgilidir. Örneğin belirli bir yükseklikte bulunan bir cismin yer çekimi potansiyel enerjisi vardır.</p>
+
+            <p>Enerji farklı türlere dönüşebilir. Bir ampulde elektrik enerjisinin ışık ve ısı enerjisine dönüşmesi buna örnektir. Burada önemli olan enerji dönüşümünü doğru belirlemektir.</p>
+
+            <p>Enerji konusunda günlük yaşam örneklerini incelemek konunun anlaşılmasını kolaylaştırır. Bir topun yukarı atılması sırasında hareket ve konumla ilişkili enerji türlerinde değişimler meydana gelir.</p>
+
+            <p>Enerjiyi incelerken sistemin başlangıç ve son durumlarını karşılaştırmak yararlıdır. Böylece hangi enerji türünün azaldığını veya arttığını daha kolay belirleyebiliriz.</p>
+
+            <p>Bu konuda sizden enerji türlerini ezberlemekten çok, bir olayda enerjinin nasıl değiştiğini açıklamanızı beklerim. Şekil çizmek ve olayın başlangıç-son durumlarını karşılaştırmak soruları çözmenizi kolaylaştıracaktır.</p>
+
+            <div class="onemli">
+                <b>Formül:</b> Ortalama sürat = Toplam yol / Toplam zaman
+            </div>
+
+            <div class="soru">
+                <b>Örnek:</b> 100 metre yolu 20 saniyede alan bir aracın ortalama sürati kaç m/s'dir?
+                <br><br>
+                <button class="cevapButon" onclick="cevapGoster('fizCevap')">
+                    Cevabı Göster
+                </button>
+                <div class="cevap" id="fizCevap">5 m/s</div>
+            </div>
+
+        </div>
+
+
+        <!-- KİMYA -->
+        <div class="not aranabilir" id="kimya">
+
+            <h3>🧪 Kimya - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1200&q=85"
+                 alt="Kimya laboratuvarı">
+
+            <h4>1. Kimya Hayattır</h4>
+
+            <p>Kimya, maddelerin yapısını, özelliklerini, birbirleriyle etkileşimlerini ve geçirdikleri değişimleri inceleyen temel bilimlerden biridir. Günlük yaşamda kullandığımız birçok ürünün oluşumunda kimyanın rolü vardır.</p>
+
+            <p>Sabun, deterjan, ilaç, gıda ürünleri, kozmetik ürünleri ve temizlik malzemeleri kimyanın günlük yaşamla ilişkisini gösteren örneklerdir. Bu nedenle kimyayı yalnızca laboratuvarda gerçekleşen olaylardan ibaret düşünmemeliyiz.</p>
+
+            <p>Kimyasal maddeler kullanılırken güvenlik kurallarına uymak gerekir. Ürünlerin üzerindeki uyarı işaretleri ve kullanım talimatları dikkatle okunmalıdır. Kimyasal maddelerin bilinçsiz şekilde karıştırılması doğru değildir.</p>
+
+            <p>Kimya çevre sorunlarının anlaşılmasında da önemli bir yere sahiptir. Su, hava ve toprak kirliliğinin nedenlerini anlamak ve bunların azaltılmasına yönelik çözümler geliştirmek için kimya bilgisinden yararlanılır.</p>
+
+            <p>Kimyanın sağlık alanında da önemli uygulamaları bulunmaktadır. İlaçların geliştirilmesi, maddelerin özelliklerinin incelenmesi ve çeşitli analizlerin yapılması kimya ile ilişkilidir.</p>
+
+            <p>Kimya biliminin gelişmesinde bilimsel araştırmaların ve deneylerin önemli bir yeri vardır. Bilim insanları gözlem ve deneylerden elde ettikleri verileri değerlendirerek bilimsel bilgiye ulaşırlar.</p>
+
+            <p>Öğretmeniniz olarak sizden kimyayı günlük yaşamdan ayrı düşünmemenizi beklerim. Evinizde, okulunuzda ve çevrenizde karşılaştığınız maddelerin özelliklerini merak ederek incelemeniz kimyaya olan ilginizi artıracaktır.</p>
+
+            <h4>2. Atomun Yapısı</h4>
+
+            <p>Maddeyi oluşturan temel yapılardan biri atomdur. Atomun yapısında proton, nötron ve elektron adı verilen atom altı parçacıklar bulunur. Bu parçacıkların özellikleri atomun yapısını anlamamız açısından önemlidir.</p>
+
+            <p>Proton pozitif elektrik yüküne sahiptir ve atomun çekirdeğinde bulunur. Nötronun elektriksel yükü yoktur ve o da çekirdekte yer alır. Elektron ise negatif yüklüdür ve çekirdek çevresindeki elektron bulutunda bulunur.</p>
+
+            <p>Bir elementin atom numarası proton sayısına eşittir. Proton sayısı elementin kimliğini belirleyen temel özelliktir. Bu nedenle iki atomun proton sayısı farklıysa bu atomlar farklı elementlere aittir.</p>
+
+            <p>Nötr bir atomda proton sayısı ile elektron sayısı birbirine eşittir. Atom elektron aldığında veya verdiğinde iyon hâline gelebilir. Ancak 9. sınıf düzeyinde öncelikle atomun temel yapısını ve parçacıkların görevlerini doğru anlamamız gerekir.</p>
+
+            <p>Kütle numarası proton ve nötron sayılarının toplamıyla ilişkilidir. Elektronların kütlesi çok küçük olduğundan kütle numarası hesaplanırken proton ve nötronlar dikkate alınır.</p>
+
+            <p>Atom modellerinin zaman içerisinde değişmesi bilimsel bilginin gelişebildiğini gösterir. Bilim insanları yeni deneyler ve kanıtlar elde ettikçe atom hakkındaki düşünceler geliştirilmiştir.</p>
+
+            <p>Bu konuda sizden proton, nötron ve elektronun yüklerini ve bulundukları yerleri kesinlikle karıştırmamanızı beklerim. Atom numarası ve kütle numarası arasındaki farkı da örnekler üzerinden çalışmanız faydalı olacaktır.</p>
+
+            <h4>3. Periyodik Tablo</h4>
+
+            <p>Periyodik tablo, elementlerin belirli bir düzen içerisinde gösterildiği sistemdir. Elementler atom numaraları temel alınarak sıralanır. Böylece elementlerin özellikleri arasındaki ilişkileri incelemek daha kolay hâle gelir.</p>
+
+            <p>Periyodik tablodaki yatay sıralara periyot, dikey sütunlara grup adı verilir. Aynı grupta bulunan elementlerin bazı kimyasal özellikleri birbirine benzerlik gösterebilir.</p>
+
+            <p>Elementler genel olarak metal, ametal ve yarı metal gibi sınıflandırmalarla incelenebilir. Metallerin parlaklık, iletkenlik ve şekil verilebilirlik gibi özellikleri bulunabilir.</p>
+
+            <p>Ametallerin özellikleri metallere göre farklıdır. Elektrik iletkenlikleri genellikle daha düşüktür ve birçok ametal oda koşullarında farklı fiziksel hâllerde bulunabilir.</p>
+
+            <p>Asal gazlar periyodik tablonun önemli gruplarından biridir. Bu elementler genel olarak kararlı elektron dizilimleriyle bilinir. Helyum, neon ve argon asal gazlara örnek olarak verilebilir.</p>
+
+            <p>Periyodik tabloyu öğrenirken elementlerin yalnızca isimlerini ezberlemek yerine tablodaki konumlarını ve temel özelliklerini anlamak daha yararlıdır. Böylece ilerleyen konularda elementler arasındaki ilişkileri daha kolay kurabilirsiniz.</p>
+
+            <p>Öğretmeniniz olarak sizden periyodik tablo üzerinde grup ve periyot kavramlarını doğru kullanmanızı beklerim. Bir elementin tablodaki yerini incelerken önce atom numarası ve bulunduğu bölgeyi dikkate almanız gerekir.</p>
+
+            <h4>4. Kimyasal Bağlar</h4>
+
+            <p>Atomlar bazı durumlarda daha kararlı yapılar oluşturmak için birbirleriyle etkileşime girer. Bu etkileşimler sonucunda kimyasal bağlar oluşabilir. Kimyasal bağ kavramı maddelerin oluşumunu anlamamız açısından önemlidir.</p>
+
+            <p>İyonik bağ, zıt yüklü iyonlar arasındaki elektrostatik çekimle ilişkilidir. Elektron alışverişi sonucunda pozitif ve negatif iyonlar oluşabilir ve bu iyonlar birbirlerini çeker.</p>
+
+            <p>Kovalent bağda atomlar elektronlarını ortaklaşa kullanır. Özellikle ametal atomları arasında kovalent bağlara rastlanır. Moleküllerin oluşumunda bu bağ türü önemli bir yere sahiptir.</p>
+
+            <p>Metalik bağ ise metal atomlarının oluşturduğu yapıdaki çekimlerle ilişkilidir. Metallerin elektrik ve ısı iletkenliği gibi özellikleri metalik bağ ve metalik yapı ile ilişkilendirilebilir.</p>
+
+            <p>Kimyasal bağları öğrenirken atomların neden etkileşime girdiğini anlamaya çalışmalıyız. Sadece bağ isimlerini ezberlemek yerine elektronların davranışını düşünmek konunun anlaşılmasını kolaylaştırır.</p>
+
+            <p>Bağ türlerini karşılaştırırken hangi atomların etkileştiğine ve elektronların nasıl davrandığına dikkat edilmelidir. Böylece iyonik ve kovalent bağ arasındaki temel fark daha kolay anlaşılır.</p>
+
+            <p>Bu konuda soru çözerken önce verilen elementlerin özelliklerini belirlemenizi öneririm. Ardından elektron alışverişi mi yoksa ortaklaşması mı olduğunu düşünerek bağ türünü belirleyebilirsiniz.</p>
+
+            <h4>5. Moleküller Arası Etkileşimler</h4>
+
+            <p>Maddelerin özelliklerini yalnızca atomların kendi içindeki bağlar belirlemez. Moleküller veya tanecikler arasında da çekim kuvvetleri bulunabilir. Bu çekimler maddelerin fiziksel özellikleri üzerinde etkili olabilir.</p>
+
+            <p>Moleküller arası etkileşimler, moleküllerin birbirlerine karşı uyguladığı çekimlerle ilgilidir. Bu etkileşimlerin türü ve büyüklüğü maddenin kaynama noktası, erime noktası ve fiziksel hâli gibi özelliklerini etkileyebilir.</p>
+
+            <p>Hidrojen bağı, belirli moleküller arasında görülebilen güçlü moleküller arası etkileşimlerden biridir. Özellikle hidrojenin bazı elektronegatif atomlarla oluşturduğu bağların bulunduğu moleküllerde bu etkileşim önem kazanır.</p>
+
+            <p>Kimyasal bağ ile moleküller arası etkileşim birbirinden farklı kavramlardır. Kimyasal bağ atomların yapısında doğrudan rol oynarken moleküller arası etkileşim farklı tanecikler arasındaki çekimi ifade eder.</p>
+
+            <p>Bu ayrımı iyi öğrenmek sonraki kimya konularını anlamak açısından önemlidir. Öğrencilerin yaptığı yaygın hatalardan biri kimyasal bağ ile moleküller arası etkileşimi aynı kavram sanmaktır.</p>
+
+            <p>Moleküller arası etkileşimleri günlük yaşamla da ilişkilendirebiliriz. Sıvıların buharlaşması, kaynaması ve bazı maddelerin birbirleriyle karışma özellikleri tanecikler arasındaki etkileşimlerle bağlantılıdır.</p>
+
+            <p>Bu konuda sizden öncelikle kavramları birbirinden ayırmanızı beklerim. Bağın nerede bulunduğunu ve hangi tanecikler arasında gerçekleştiğini düşünürseniz soruları çözmeniz daha kolay olacaktır.</p>
+
+            <h4>6. Sıvıların Özellikleri</h4>
+
+            <p>Sıvılar belirli bir hacme sahip olan ancak belirli bir şekle sahip olmayan maddelerdir. Bulundukları kabın şeklini alırlar. Sıvıların davranışlarını anlamak için tanecikler arasındaki etkileşimleri de dikkate almak gerekir.</p>
+
+            <p>Viskozite, bir sıvının akmaya karşı gösterdiği direnç olarak açıklanabilir. Balın suya göre daha yavaş akması, viskozitesinin daha yüksek olmasıyla ilişkilidir.</p>
+
+            <p>Viskozite sıcaklıkla değişebilir. Birçok sıvıda sıcaklık arttıkça akmaya karşı direnç azalır. Bu nedenle sıvıların sıcaklık değişimlerine verdiği tepki incelenirken viskozite kavramından yararlanılır.</p>
+
+            <p>Yüzey gerilimi ise sıvı yüzeyindeki tanecikler arasındaki çekim kuvvetleriyle ilişkilidir. Bazı küçük canlıların su yüzeyinde hareket edebilmesi yüzey gerilimiyle açıklanabilir.</p>
+
+            <p>Sıvıların buharlaşması da taneciklerin hareketleriyle ilişkilidir. Yeterli enerjiye sahip bazı tanecikler sıvı yüzeyinden ayrılarak gaz hâline geçebilir.</p>
+
+            <p>Sıvıların özelliklerini incelerken sıcaklık, tanecikler arası etkileşim ve maddenin yapısı gibi faktörleri birlikte değerlendirmek gerekir. Tek bir faktöre bakarak genelleme yapmak doğru olmayabilir.</p>
+
+            <p>Öğretmeniniz olarak sizden viskozite ve yüzey gerilimi gibi kavramları günlük yaşam örnekleriyle açıklayabilmenizi beklerim. Örneğin bal, su ve yağ gibi sıvıları gözlemlemek konuyu anlamanıza yardımcı olabilir.</p>
+
+            <div class="onemli">
+                <b>Önemli:</b> Atom numarası bir elementin proton sayısını gösterir.
+            </div>
+
+            <div class="soru">
+                <b>Örnek:</b> Atom numarası 8 olan nötr bir atomun kaç elektronu vardır?
+                <br><br>
+                <button class="cevapButon" onclick="cevapGoster('kimCevap')">
+                    Cevabı Göster
+                </button>
+                <div class="cevap" id="kimCevap">8 elektron</div>
+            </div>
+
+        </div>
+
+
+        <!-- BİYOLOJİ -->
+        <div class="not aranabilir" id="biyoloji">
+
+            <h3>🧬 Biyoloji - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=85"
+                 alt="Biyoloji ve hücre">
+
+            <h4>1. Yaşam ve Bilim</h4>
+
+            <p>Biyoloji, canlıları ve canlılarda gerçekleşen yaşam olaylarını inceleyen bilim dalıdır. Canlıların yapısı, özellikleri, birbirleriyle ilişkileri ve çevreleriyle etkileşimleri biyolojinin çalışma alanları arasındadır.</p>
+
+            <p>Bilimsel bilgi gözlem, araştırma, deney ve elde edilen verilerin değerlendirilmesi gibi süreçlerle geliştirilir. Bilim insanları bir problem belirleyerek bu probleme yönelik araştırmalar yapabilirler.</p>
+
+            <p>Bilimsel araştırmalarda verilerin doğru toplanması ve kaydedilmesi önemlidir. Elde edilen sonuçların kanıtlara dayanması bilimsel çalışmanın güvenilirliği açısından gereklidir.</p>
+
+            <p>Biyolojide mikroskop gibi çeşitli araçlardan yararlanılabilir. Bu araçlar canlıların çıplak gözle görülemeyen yapılarını incelememize yardımcı olur.</p>
+
+            <p>Bilimsel çalışmalarda etik kurallara da dikkat edilmelidir. Araştırma yapılırken canlılara, insanlara ve çevreye karşı sorumlu davranmak bilimsel çalışmanın önemli bir parçasıdır.</p>
+
+            <p>Biyoloji günlük yaşamla doğrudan ilişkilidir. Sağlık, beslenme, çevre, tarım ve canlıların korunması gibi birçok konuda biyolojik bilgilerden yararlanılır.</p>
+
+            <p>Öğretmeniniz olarak sizden biyolojiyi yalnızca ezberlenecek bilgilerden oluşan bir ders olarak görmemenizi isterim. Çevrenizdeki canlıları gözlemleyerek onların ortak ve farklı özelliklerini düşünmeniz biyolojik düşünme becerinizi geliştirir.</p>
+
+            <h4>2. Canlıların Ortak Özellikleri</h4>
+
+            <p>Tüm canlılar birbirinden farklı görünse de canlıların ortak bazı özellikleri vardır. Hücresel yapı, beslenme, enerji kullanımı, büyüme, gelişme, üreme ve uyarılara tepki verme bu özellikler arasında yer alır.</p>
+
+            <p>Canlıların temel yapı ve işlev birimi hücredir. Tek hücreli canlılarda bütün yaşamsal olaylar tek hücre içerisinde gerçekleşebilir. Çok hücreli canlılarda ise hücreler arasında görev paylaşımı bulunur.</p>
+
+            <p>Canlılar yaşamlarını sürdürebilmek için enerjiye ihtiyaç duyar. Besinlerden elde edilen enerji çeşitli hücresel olayların gerçekleşmesinde kullanılır. Bu nedenle enerji kullanımı canlıların ortak özelliklerinden biridir.</p>
+
+            <p>Canlılar çevrelerinden gelen uyarılara tepki verebilir. Örneğin bitkilerin ışığa doğru yönelmesi veya insanların sıcak bir yüzeye dokunduğunda elini çekmesi uyarılara verilen tepkilere örnektir.</p>
+
+            <p>Homeostazi, canlıların iç ortamlarını belirli sınırlar içerisinde dengede tutabilmesiyle ilgilidir. Vücudun sıcaklığının belirli bir aralıkta tutulması buna örnek olarak verilebilir.</p>
+
+            <p>Üreme canlıların nesillerini devam ettirmesi açısından önemlidir. Ancak bireyin yaşamını sürdürmesi için üreme zorunlu bir olay değildir; üreme daha çok türün devamlılığı açısından değerlendirilir.</p>
+
+            <p>Bu ortak özellikleri öğrenirken her canlıda aynı şekilde gerçekleştiğini düşünmemelisiniz. Canlılar bu özellikleri farklı biçimlerde gerçekleştirebilir. Önemli olan ortak özelliğin temel anlamını doğru kavramaktır.</p>
+
+            <h4>3. İnorganik Moleküller</h4>
+
+            <p>Canlıların yapısında bulunan maddeler genel olarak inorganik ve organik maddeler şeklinde incelenebilir. Su, mineraller, asitler, bazlar ve tuzlar inorganik maddelere örnek verilebilir.</p>
+
+            <p>Su, canlıların yaşamında çok önemli bir yere sahiptir. Hücrelerin yapısında bulunur ve birçok metabolik olayın gerçekleşmesine yardımcı olur. Ayrıca maddelerin taşınmasında da önemli görev üstlenir.</p>
+
+            <p>Mineraller canlıların ihtiyaç duyduğu inorganik maddelerdendir. Vücutta düzenleyici görevlerde bulunabilirler. Ancak minerallerin miktarının dengeli olması önemlidir.</p>
+
+            <p>Asit ve baz kavramları da biyolojide önem taşır. Canlıların vücutlarında gerçekleşen olayların uygun koşullarda devam edebilmesi için belirli pH değerlerinin korunması gerekir.</p>
+
+            <p>Tuzlar da canlıların yapısında ve çeşitli yaşamsal olaylarda rol oynayabilir. Bazı minerallerin vücuda alınması ve dengeli kullanılması normal yaşam faaliyetleri açısından önemlidir.</p>
+
+            <p>İnorganik maddeler enerji verici temel besinler olarak düşünülmemelidir. Bunların önemli görevlerinden biri canlı yapısının ve metabolik olayların düzenli şekilde devam etmesine katkı sağlamaktır.</p>
+
+            <p>Bu konuyu çalışırken su ve minerallerin görevlerini birbirine karıştırmamanızı öneririm. Her maddenin canlıdaki görevini ayrı ayrı öğrenirseniz konu daha kolay anlaşılacaktır.</p>
+
+            <h4>4. Karbonhidratlar</h4>
+
+            <p>Karbonhidratlar canlılarda önemli görevleri bulunan organik moleküllerdir. Özellikle enerji sağlanmasında önemli bir role sahiptirler. Günlük beslenmede ekmek, pirinç, makarna ve meyveler karbonhidrat içerebilir.</p>
+
+            <p>Karbonhidratlar yapılarına göre farklı gruplarda incelenebilir. Monosakkaritler en basit karbonhidratlardır. Glikoz, fruktoz ve galaktoz monosakkaritlere örnek olarak verilebilir.</p>
+
+            <p>Glikoz canlı hücrelerin enerji elde etme süreçlerinde önemli bir moleküldür. Hücreler glikozu çeşitli metabolik yollarla parçalayarak kullanılabilir enerji elde edebilir.</p>
+
+            <p>Disakkaritler iki monosakkaritin birleşmesiyle oluşur. Sakkaroz ve laktoz gibi moleküller disakkaritlere örnektir. Polisakkaritler ise daha fazla monosakkaritin birleşmesiyle oluşan büyük yapılardır.</p>
+
+            <p>Nişasta bitkilerde depo polisakkariti olarak görev yaparken glikojen hayvanlarda ve mantarlarda depo polisakkariti olarak bulunabilir. Selüloz ise bitkilerin hücre duvarının önemli yapısal bileşenlerinden biridir.</p>
+
+            <p>Karbonhidratları öğrenirken her karbonhidratın aynı görevi yaptığını düşünmemeliyiz. Bazıları enerji sağlamada, bazıları depolamada, bazıları ise yapısal görevlerde önemlidir.</p>
+
+            <p>Öğretmeniniz olarak sizden karbonhidrat çeşitlerini görevleriyle birlikte öğrenmenizi beklerim. Özellikle glikoz, nişasta, glikojen ve selüloz arasındaki farkları karşılaştırarak çalışmanız faydalı olacaktır.</p>
+
+            <h4>5. Yağlar</h4>
+
+            <p>Yağlar veya lipitler canlılarda çeşitli görevleri bulunan organik bileşiklerdir. Enerji depolanmasında önemli rol oynarlar. Ayrıca bazı lipitler hücre zarının yapısında bulunur.</p>
+
+            <p>Yağların enerji içeriği karbonhidratlara göre daha yüksektir. Bu nedenle uzun süreli enerji depolarının oluşmasında önemli olabilirler. Ancak bu durum yağların yalnızca enerji amacıyla kullanıldığı anlamına gelmez.</p>
+
+            <p>Fosfolipitler hücre zarının yapısında bulunan önemli lipitlerdir. Hücre zarının seçici geçirgen özelliğinin oluşmasında fosfolipitlerin yapısı önemli rol oynar.</p>
+
+            <p>Bazı lipitler hormonların yapısında veya düzenleyici olaylarda görev alabilir. Bu nedenle yağları yalnızca besin olarak düşünmek doğru değildir.</p>
+
+            <p>Yağların fiziksel özellikleri yapılarındaki yağ asitleriyle ilişkilidir. Doymuş ve doymamış yağ asitleri arasında yapısal farklılıklar bulunabilir.</p>
+
+            <p>Canlıların ihtiyaç duyduğu yağların dengeli biçimde alınması önemlidir. Biyoloji dersinde burada temel amaç, yağların canlılardaki yapı ve görevlerini bilimsel açıdan anlamaktır.</p>
+
+            <p>Bu konuda çalışırken yağların enerji depolama ve yapısal görevlerini özellikle ayırt etmenizi tavsiye ederim. Hücre zarı ile lipitler arasındaki ilişkiyi de mutlaka öğrenmelisiniz.</p>
+
+            <h4>6. Proteinler</h4>
+
+            <p>Proteinler canlılarda çok çeşitli görevleri bulunan büyük organik moleküllerdir. Proteinlerin temel yapı taşları amino asitlerdir. Amino asitlerin farklı şekillerde dizilmesi farklı proteinlerin oluşmasını sağlar.</p>
+
+            <p>Proteinler hücrelerin yapısında görev alabilir. Kas, deri ve diğer dokuların yapısında proteinler bulunur. Ayrıca hücre içinde gerçekleşen birçok olayda proteinlerin görevleri vardır.</p>
+
+            <p>Enzimlerin büyük bir bölümü protein yapısındadır. Enzimler hücrelerde gerçekleşen kimyasal tepkimelerin hızını düzenlemeye yardımcı olur. Bu nedenle proteinlerin metabolizma açısından da önemi büyüktür.</p>
+
+            <p>Proteinlerin görevleri yalnızca yapı oluşturmakla sınırlı değildir. Bazı proteinler taşıma, savunma ve düzenleme gibi farklı görevlerde rol oynar.</p>
+
+            <p>Amino asitlerin birbirine bağlanması sonucunda protein yapıları oluşabilir. Proteinlerin görevlerini doğru şekilde yapabilmeleri için yapılarının uygun olması gerekir.</p>
+
+            <p>Proteinlerin yapısı yüksek sıcaklık veya uygun olmayan pH gibi koşullardan etkilenebilir. Bu durum proteinlerin görevlerini yerine getirmesini zorlaştırabilir.</p>
+
+            <p>Öğretmeniniz olarak sizden proteinleri amino asitlerle ilişkilendirmenizi ve proteinlerin canlılardaki farklı görevlerini örneklerle açıklayabilmenizi beklerim.</p>
+
+            <h4>7. Enzimler</h4>
+
+            <p>Enzimler canlı hücrelerde gerçekleşen birçok kimyasal tepkimenin hızını artıran biyolojik katalizörlerdir. Hücrelerdeki yaşamsal faaliyetlerin düzenli biçimde sürdürülebilmesi için enzimlerin çalışması büyük önem taşır.</p>
+
+            <p>Enzimler tepkimelerin başlaması için gereken aktivasyon enerjisini düşürerek tepkimenin daha kolay gerçekleşmesine yardımcı olur. Ancak enzimler tepkime sonucunda tamamen tükenmez.</p>
+
+            <p>Her enzimin etkili olduğu maddeler ve tepkimeler farklı olabilir. Enzim ile üzerinde etkili olduğu madde arasındaki uyum önemlidir. Bu nedenle enzimlerin özgüllüğü konunun temel noktalarından biridir.</p>
+
+            <p>Sıcaklık enzimlerin çalışmasını etkileyen faktörlerden biridir. Belirli bir sıcaklık aralığında enzim etkinliği artabilir ancak çok yüksek sıcaklıklar protein yapısındaki enzimlerin bozulmasına neden olabilir.</p>
+
+            <p>pH da enzimlerin çalışmasında önemli bir etkendir. Her enzimin en iyi çalıştığı uygun bir pH aralığı bulunabilir. Bu nedenle farklı ortamlardaki enzimlerin çalışma koşulları aynı olmayabilir.</p>
+
+            <p>Enzim miktarı ve substrat miktarı gibi faktörler de tepkime hızını etkileyebilir. Ancak bu faktörleri incelerken diğer değişkenlerin kontrol edilmesi gerekir.</p>
+
+            <p>Bu konuda sorular çözerken enzim etkinliğini etkileyen faktörleri tek tek düşünmenizi öneririm. Özellikle sıcaklık ve pH değişimlerinin enzim etkinliği üzerindeki etkisini grafiklerle incelemek oldukça faydalıdır.</p>
+
+            <h4>8. Hücre ve Organizasyon</h4>
+
+            <p>Hücre, canlıların temel yapı ve işlev birimidir. Bazı canlılar tek hücreden oluşurken bazı canlılar çok sayıda hücrenin bir araya gelmesiyle oluşur. Hücrelerin yapısı canlıların özellikleri hakkında önemli bilgiler verir.</p>
+
+            <p>Prokaryot hücrelerde zarla çevrili gerçek bir çekirdek bulunmaz. Ökaryot hücrelerde ise genetik materyali çevreleyen zarla çevrili çekirdek bulunur. Bu iki hücre tipi arasındaki temel farklardan biri budur.</p>
+
+            <p>Ökaryot hücrelerde farklı görevleri yerine getiren organeller bulunur. Örneğin mitokondri enerji üretimiyle, ribozom protein senteziyle ilişkilidir. Her organelin hücre içerisinde kendine özgü görevleri vardır.</p>
+
+            <p>Bitki ve hayvan hücreleri ökaryot hücrelerdir ancak aralarında bazı farklılıklar bulunur. Bitki hücrelerinde hücre duvarı ve kloroplast gibi yapılar bulunurken hayvan hücrelerinde bunlar bulunmaz.</p>
+
+            <p>Çok hücreli canlılarda hücreler arasında görev paylaşımı vardır. Benzer yapı ve görevdeki hücreler dokuları, dokular organları, organlar ise sistemleri oluşturabilir.</p>
+
+            <p>Bu yapıların birlikte çalışması organizmanın yaşamını sürdürebilmesini sağlar. Bu nedenle hücreden organizmaya doğru gidildikçe daha karmaşık bir organizasyon ortaya çıkar.</p>
+
+            <p>Öğretmeniniz olarak sizden hücre organellerini yalnızca isimleriyle değil, görevleriyle birlikte öğrenmenizi beklerim. Özellikle prokaryot ve ökaryot hücre arasındaki temel farkları net biçimde bilmelisiniz.</p>
+
+            <div class="onemli">
+                <b>Önemli:</b> Hücre, canlıların temel yapı ve işlev birimidir.
+            </div>
+
+        </div>
+
+
+        <!-- EDEBİYAT -->
+        <div class="not aranabilir" id="edebiyat">
+
+            <h3>📖 Türk Dili ve Edebiyatı - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85"
+                 alt="Kitap ve edebiyat">
+
+            <h4>1. Sözün İnceliği</h4>
+
+            <p>Edebiyat, insanların duygu, düşünce, hayal ve yaşantılarını dil aracılığıyla etkili ve estetik biçimde ifade etmelerini sağlayan sanat alanlarından biridir. Edebî eserlerde dilin yalnızca bilgi aktarma yönü değil, okuyucuda duygu ve düşünce oluşturma yönü de önemlidir.</p>
+
+            <p>Edebî metinlerde kullanılan kelimeler çoğu zaman farklı çağrışımlar oluşturabilir. Bir kelime gerçek anlamının yanında mecaz veya yan anlamıyla da kullanılabilir. Bu nedenle metni okurken kelimelerin cümle içindeki kullanımına dikkat etmek gerekir.</p>
+
+            <p>Şiir, hikâye, roman, tiyatro, deneme ve anı gibi farklı edebî türler vardır. Her türün kendine özgü anlatım özellikleri bulunur. Bir metnin türünü belirlerken yalnızca konusuna değil, anlatım biçimine ve yapısına da bakılmalıdır.</p>
+
+            <p>Edebî metinlerde sanatçı, yaşadığı çevreden ve toplumdan etkilenebilir. Ancak sanatçı bunları kendi hayal gücü ve anlatım biçimiyle yeniden oluşturabilir. Bu nedenle aynı konu farklı sanatçılar tarafından farklı biçimlerde ele alınabilir.</p>
+
+            <p>Metin incelemesinde başlık, konu, ana düşünce, ana duygu ve yardımcı düşünceler gibi unsurlara dikkat edilir. Bunları birbirinden ayırmak metnin anlamını doğru kavramamızı sağlar.</p>
+
+            <p>Bir metni değerlendirirken yalnızca “Ne anlatılıyor?” sorusunu sormak yeterli değildir. “Nasıl anlatılmış?”, “Hangi kelimeler seçilmiş?” ve “Okuyucuda nasıl bir etki oluşturulmuş?” gibi sorular da önemlidir.</p>
+
+            <p>Öğretmeniniz olarak sizden edebî metinleri dikkatli okumanızı ve metindeki ifadeleri doğrudan metinden hareketle yorumlamanızı beklerim. Kendi yorumunuzu yaparken mutlaka metindeki kanıtlara dayanmanız gerekir.</p>
+
+            <h4>2. Anlam Arayışı</h4>
+
+            <p>Bir metni anlamanın ilk adımlarından biri konuyu belirlemektir. Konu, metinde üzerinde durulan olay, durum veya düşüncedir. Konuyu bulurken metnin tamamına bakmak ve metnin genel olarak ne hakkında olduğunu belirlemek gerekir.</p>
+
+            <p>Ana düşünce ise yazarın okuyucuya vermek istediği temel düşüncedir. Özellikle düşünce yazılarında ana düşünce metnin anlaşılması açısından büyük önem taşır. Ana düşünce ile konuyu birbirine karıştırmamalısınız.</p>
+
+            <p>Hikâye ve benzeri anlatmaya bağlı metinlerde ana duygu da önemli olabilir. Ana duygu, metnin okuyucuda oluşturmayı amaçladığı temel duygu olarak düşünülebilir. Sevgi, özlem, yalnızlık ve umut gibi duygular buna örnek verilebilir.</p>
+
+            <p>Metnin başlığı da anlamı belirlemede bize yardımcı olabilir. Ancak yalnızca başlığa bakarak kesin bir sonuca ulaşmak doğru değildir. Metnin tamamı okunmalı ve başlıkla metin arasındaki ilişki değerlendirilmelidir.</p>
+
+            <p>Yardımcı düşünceler ana düşünceyi destekleyen düşüncelerdir. Bir metinde birden fazla yardımcı düşünce bulunabilir. Bu düşünceler metnin ana mesajının daha iyi anlaşılmasına yardımcı olur.</p>
+
+            <p>Okuma sırasında önemli kelimelerin altını çizmek veya kısa notlar almak anlamayı kolaylaştırabilir. Özellikle uzun metinlerde paragraf paragraf ilerlemek ve her paragrafın temel düşüncesini belirlemek faydalıdır.</p>
+
+            <p>Öğretmeniniz olarak sizden bir metnin konusunu ve ana düşüncesini kendi cümlelerinizle açıklamanızı beklerim. Ezberlenmiş kalıplar yerine metinden hareket eden açık ve anlaşılır cevaplar vermeniz daha değerlidir.</p>
+
+            <h4>3. Anlatım ve Metin</h4>
+
+            <p>Metinlerde yazarın amacına göre farklı anlatım biçimleri kullanılabilir. Açıklayıcı, öyküleyici, betimleyici ve tartışmacı anlatım bunlardan bazılarıdır. Bir metinde birden fazla anlatım biçimi de kullanılabilir.</p>
+
+            <p>Açıklayıcı anlatımda temel amaç okuyucuya bilgi vermektir. Bu tür anlatım ders kitaplarında, bilgilendirici yazılarda ve çeşitli makalelerde sıkça karşımıza çıkar. Dil mümkün olduğunca açık ve anlaşılırdır.</p>
+
+            <p>Öyküleyici anlatımda olaylar belirli bir akış içerisinde anlatılır. Olay, kişi, yer ve zaman gibi unsurlar öyküleyici anlatımda önemli yer tutar. Hikâye ve romanlarda bu anlatım biçimine sıkça rastlanabilir.</p>
+
+            <p>Betimleyici anlatımda bir varlık, kişi veya mekânın özellikleri ayrıntılı biçimde anlatılır. Amaç okuyucunun anlatılan varlığı zihninde canlandırmasını sağlamaktır.</p>
+
+            <p>Tartışmacı anlatımda yazar bir düşünceyi savunur ve farklı düşüncelere karşı kendi görüşünü ortaya koyabilir. Bu anlatımda düşüncelerin gerekçelerle desteklenmesi önemlidir.</p>
+
+            <p>Bir metni incelerken önce yazarın temel amacını belirlemeye çalışmalısınız. Ardından kullanılan anlatım biçimini ve metni destekleyen ifadeleri inceleyebilirsiniz.</p>
+
+            <p>Öğretmeniniz olarak sizden anlatım biçimlerini yalnızca isim olarak öğrenmenizi değil, bir paragrafta hangi anlatım biçiminin kullanıldığını gerekçesiyle açıklamanızı beklerim.</p>
+
+            <h4>4. Şiir</h4>
+
+            <p>Şiir, dilin estetik ve yoğun biçimde kullanıldığı edebî türlerden biridir. Şairler duygu, düşünce, hayal ve gözlemlerini farklı söz sanatlarından ve ses özelliklerinden yararlanarak ifade edebilirler.</p>
+
+            <p>Şiirde dizeler önemli bir yapı unsurudur. Dizelerin düzenlenişi, nazım birimi, ölçü, uyak ve redif gibi özellikler şiirin biçimsel yapısının incelenmesinde kullanılabilir.</p>
+
+            <p>Uyak, dizelerin sonunda bulunan ses benzerliğidir. Redif ise aynı görev ve anlamdaki ek, kelime veya kelime gruplarının tekrar edilmesidir. Bu iki kavramı birbirinden ayırmak özellikle önemlidir.</p>
+
+            <p>Şiirde ölçü, dizelerin belirli bir düzen içerisinde oluşturulmasıyla ilgilidir. Türk şiirinde hece ölçüsü ve aruz ölçüsü gibi farklı ölçüler kullanılmıştır. Ancak her şiirde mutlaka aynı ölçünün bulunması gerekmez.</p>
+
+            <p>Şiirin anlamını incelerken yalnızca biçim özelliklerine bakmak yeterli değildir. Şairin hangi duyguyu veya düşünceyi öne çıkardığını da belirlemek gerekir.</p>
+
+            <p>Şiirlerde mecaz, benzetme, kişileştirme gibi söz sanatları kullanılabilir. Bu sanatlar anlatımı daha etkili ve çağrışımlı hâle getirebilir.</p>
+
+            <p>Şiir incelemesinde önce metni birkaç kez dikkatli biçimde okumanızı öneririm. Daha sonra konu, ana duygu, biçim özellikleri ve kullanılan sanatlar üzerinde durmanız konuyu daha iyi anlamanızı sağlar.</p>
+
+            <h4>5. Hikâye</h4>
+
+            <p>Hikâye, yaşanmış veya yaşanabilecek olayları kısa biçimde anlatan edebî türlerden biridir. Hikâyelerde genellikle olay, kişi, zaman ve mekân unsurları bulunur.</p>
+
+            <p>Olay örgüsü, hikâyede meydana gelen olayların belirli bir düzen içerisinde sıralanmasıdır. Olayların başlangıç, gelişme ve sonuç bölümleri arasında bir ilişki bulunabilir.</p>
+
+            <p>Kişiler hikâyedeki olayların oluşmasını sağlayan karakterlerdir. Başkahraman veya yardımcı karakterler farklı özelliklere sahip olabilir. Yazar kişileri davranışları ve konuşmaları aracılığıyla tanıtabilir.</p>
+
+            <p>Mekân, olayların gerçekleştiği yeri ifade eder. Mekân bazen yalnızca olayın gerçekleştiği yer olarak kalırken bazen karakterlerin ruh hâlini veya olayların atmosferini de etkileyebilir.</p>
+
+            <p>Zaman unsuru olayların ne zaman gerçekleştiğini gösterir. Hikâyelerde olaylar geçmişte, günümüzde veya farklı zaman dilimlerinde anlatılabilir.</p>
+
+            <p>Anlatıcı ise hikâyeyi okuyucuya aktaran kişidir. Birinci kişi anlatımda anlatıcı olayın içinde bulunabilir. Üçüncü kişi anlatımda ise olaylar dışarıdan aktarılabilir.</p>
+
+            <p>Bir hikâyeyi incelerken olay, kişi, zaman, mekân ve anlatıcı unsurlarını ayrı ayrı belirlemenizi öneririm. Bu unsurlar arasındaki ilişkiyi kurduğunuzda hikâyenin yapısını daha kolay anlayabilirsiniz.</p>
+
+            <h4>6. Anı</h4>
+
+            <p>Anı, kişinin geçmişte yaşadığı veya tanık olduğu olayları daha sonra yazılı olarak anlatmasıdır. Anılarda yazarın kişisel gözlemleri ve deneyimleri önemli yer tutar.</p>
+
+            <p>Anı türünde gerçek yaşantılardan hareket edilir. Bu nedenle anılar tarihî veya toplumsal olayları anlamamız açısından da yardımcı olabilir. Ancak anlatılanlar yazarın bakış açısından aktarıldığı için kişisel özellikler taşıyabilir.</p>
+
+            <p>Anılarda zaman kavramı oldukça önemlidir. Yazar geçmişte gerçekleşen bir olayı daha sonra hatırlayarak anlatır. Bu nedenle olay ile anlatım zamanı arasında fark bulunabilir.</p>
+
+            <p>Anı ile günlük birbirinden farklıdır. Günlük genellikle olayların yaşandığı gün veya yakın zamanda yazılırken anı geçmişte yaşananların daha sonra hatırlanarak anlatılmasıdır.</p>
+
+            <p>Anıların dili çoğu zaman kişiseldir. Yazar kendi düşüncelerini, duygularını ve olaylara ilişkin değerlendirmelerini aktarabilir.</p>
+
+            <p>Anı türü aynı zamanda geçmişin anlaşılmasına katkı sağlar. Bir dönemin sosyal hayatı, eğitim anlayışı veya günlük yaşamı hakkında anılardan bilgiler elde edilebilir.</p>
+
+            <p>Öğretmeniniz olarak sizden anı türünü tanırken temel özelliğinin geçmişte yaşanmış olayların sonradan anlatılması olduğunu bilmenizi beklerim. Günlük ve anı arasındaki zaman farkına özellikle dikkat etmelisiniz.</p>
+
+            <h4>7. Mülakat</h4>
+
+            <p>Mülakat, bir kişinin görüşlerini, düşüncelerini veya deneyimlerini öğrenmek amacıyla yapılan soru-cevap biçimindeki görüşmedir. Mülakatlarda görüşülen kişinin alanı ve konuya uygun sorular hazırlanır.</p>
+
+            <p>İyi bir mülakat sorusu açık ve anlaşılır olmalıdır. Sorunun ne istediği net biçimde anlaşılmalı ve görüşülen kişiyi konu hakkında konuşmaya yönlendirmelidir.</p>
+
+            <p>Mülakat yapan kişi konuşmayı dikkatli şekilde takip etmelidir. Verilen cevaplardan yeni sorular oluşturulabilir. Böylece görüşme daha doğal ve bilgi açısından daha zengin hâle gelebilir.</p>
+
+            <p>Mülakatın giriş bölümünde görüşülen kişi tanıtılabilir ve görüşmenin konusu açıklanabilir. Daha sonra konuya ilişkin sorulara geçilir. Son bölümde ise görüşme uygun biçimde tamamlanır.</p>
+
+            <p>Mülakatlarda dilin saygılı ve anlaşılır olması önemlidir. Sorular kişiyi küçük düşürecek veya konudan uzaklaştıracak biçimde hazırlanmamalıdır.</p>
+
+            <p>Mülakatlar edebiyat, sanat, bilim, spor ve günlük yaşam gibi birçok alanda kullanılabilir. Bir kişinin deneyimlerinden yararlanmak için önemli bir iletişim yöntemidir.</p>
+
+            <p>Öğretmeniniz olarak sizden mülakatı sıradan bir sohbetten ayıran özellikleri bilmenizi beklerim. Özellikle amaçlı soru sorma ve alınan cevapları düzenli biçimde aktarma özelliklerine dikkat ediniz.</p>
+
+        </div>
+
+
+        <!-- TARİH -->
+        <div class="not aranabilir" id="tarih">
+
+            <h3>🏛️ Tarih - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1461360370896-922624d12b58?auto=format&fit=crop&w=1200&q=85"
+                 alt="Tarih ve eski eserler">
+
+            <h4>1. Geçmişin İnşa Sürecinde Tarih</h4>
+
+            <p>Tarih, geçmişte yaşamış insanların faaliyetlerini zaman ve mekân ilişkisi içerisinde inceleyen bir sosyal bilimdir. Tarih sayesinde geçmiş toplumların siyasi, sosyal, ekonomik ve kültürel hayatları hakkında bilgi sahibi oluruz.</p>
+
+            <p>Tarih öğrenmek yalnızca geçmişte yaşanan olayları ezberlemek anlamına gelmez. Geçmişte meydana gelen olayların nedenlerini, sonuçlarını ve birbirleriyle ilişkilerini anlamak da tarih öğrenmenin önemli bir parçasıdır.</p>
+
+            <p>Tarihçiler araştırma yaparken farklı kaynaklardan yararlanırlar. Yazılı belgeler, kitabeler, paralar, mimari eserler, sözlü kaynaklar ve görsel materyaller tarih araştırmalarında kullanılabilir.</p>
+
+            <p>Birinci el kaynaklar olayın yaşandığı döneme ait doğrudan kaynaklardır. İkinci el kaynaklar ise geçmişteki olayları daha sonra değerlendiren çalışmalardır. Kaynağın niteliğini bilmek tarih araştırmasının güvenilirliği açısından önemlidir.</p>
+
+            <p>Tarihî bilgilerin oluşturulmasında kaynakların eleştirel biçimde incelenmesi gerekir. Bir belgeyi yalnızca var olduğu için doğru kabul etmek yerine kaynağın kim tarafından, ne zaman ve hangi amaçla oluşturulduğu değerlendirilmelidir.</p>
+
+            <p>Dijitalleşme tarih araştırmalarını da etkilemiştir. Günümüzde çeşitli arşivlere ve dijital belgelere daha hızlı ulaşmak mümkün olabilmektedir. Ancak internet ortamındaki her bilginin güvenilir olmadığını unutmamak gerekir.</p>
+
+            <p>Öğretmeniniz olarak sizden tarihî olayları kanıtlara dayalı biçimde incelemenizi beklerim. Bir bilgiyle karşılaştığınızda “Bu bilginin kaynağı nedir?” sorusunu sormanız tarih dersinde geliştireceğiniz önemli bir alışkanlıktır.</p>
+
+            <h4>2. Eski Çağ Medeniyetleri</h4>
+
+            <p>Eski Çağ, insanlık tarihinin önemli gelişmelerinin yaşandığı dönemlerden biridir. Yazının kullanılması, şehirlerin gelişmesi ve devlet teşkilatlarının ortaya çıkması bu dönemde yaşanan önemli gelişmeler arasında gösterilebilir.</p>
+
+            <p>Mezopotamya, Dicle ve Fırat nehirleri arasındaki bölge olarak bilinir. Sümerler, Akadlar, Babiller ve Asurlular gibi çeşitli topluluklar bu bölgede yaşamıştır.</p>
+
+            <p>Sümerlerin yazıyı kullanması tarih açısından önemli bir gelişmedir. Yazının kullanılması bilgilerin daha kalıcı şekilde aktarılmasını sağlamış ve tarihî kaynakların oluşmasına katkıda bulunmuştur.</p>
+
+            <p>Mısır uygarlığı Nil Nehri çevresinde gelişmiştir. Nil Nehri tarım faaliyetleri ve yerleşim açısından önemli bir kaynak olmuştur. Mısır'da gelişmiş bir devlet ve toplum düzeni ortaya çıkmıştır.</p>
+
+            <p>Anadolu da Eski Çağ boyunca birçok medeniyete ev sahipliği yapmıştır. Hititler, Frigler, Lidyalılar ve Urartular Anadolu tarihinin önemli toplulukları arasında yer alır.</p>
+
+            <p>Ticaret yolları ve doğal kaynaklar eski medeniyetlerin gelişimini etkilemiştir. Coğrafi koşullar toplumların ekonomik faaliyetlerini ve yerleşim biçimlerini şekillendirebilmiştir.</p>
+
+            <p>Bu konuyu çalışırken medeniyetlerin yalnızca isimlerini ezberlemek yerine hangi bölgelerde yaşadıklarını ve hangi gelişmelerle öne çıktıklarını birlikte öğrenmenizi öneririm.</p>
+
+            <h4>3. Eski Türklerde Hayat</h4>
+
+            <p>İlk Türk topluluklarının önemli bir bölümü Orta Asya'da yaşamıştır. Bu coğrafyanın iklim ve bozkır özellikleri, Türklerin ekonomik faaliyetleri ve yaşam biçimleri üzerinde etkili olmuştur.</p>
+
+            <p>Konargöçer yaşam tarzı özellikle hayvancılığın önemli olduğu topluluklarda görülmüştür. Mevsim şartlarına göre farklı bölgelere hareket edilmesi bu yaşam tarzının temel özelliklerinden biridir.</p>
+
+            <p>At, Türk toplumlarının günlük hayatında ve askerî faaliyetlerinde önemli bir yere sahip olmuştur. Atlı yaşam kültürü ulaşım ve savaş yöntemlerinin gelişmesinde etkili olmuştur.</p>
+
+            <p>Eski Türk devletlerinde devlet teşkilatı ve yönetim anlayışı da gelişmiştir. Hükümdar devletin yönetiminden sorumlu olmakla birlikte toplumun düzeninin sağlanması önemli bir görev olarak görülmüştür.</p>
+
+            <p>Türklerde sözlü kültürün önemli bir yeri bulunmuştur. Destanlar, atasözleri ve çeşitli sözlü aktarımlar toplumun geçmişine ilişkin bilgilerin nesilden nesile aktarılmasına yardımcı olmuştur.</p>
+
+            <p>Orhun Yazıtları Türk tarihinin önemli yazılı kaynakları arasında yer alır. Bu yazıtlar Türklerin siyasi ve sosyal hayatı hakkında bilgi edinmemize yardımcı olur.</p>
+
+            <p>Öğretmeniniz olarak sizden eski Türklerin yaşamını değerlendirirken coğrafya, ekonomi, kültür ve devlet yapısı arasındaki ilişkiyi kurmanızı beklerim.</p>
+
+            <h4>4. İslam Medeniyetinin Doğuşu</h4>
+
+            <p>İslamiyet 7. yüzyılda Arabistan'da ortaya çıkmıştır. Hz. Muhammed İslam dininin peygamberidir. İslamiyet'in ortaya çıkışı Arabistan'ın siyasi, sosyal ve ekonomik yapısı üzerinde önemli değişikliklere yol açmıştır.</p>
+
+            <p>İslamiyet'in doğduğu dönemde Arap Yarımadası'nda farklı kabileler bulunmaktaydı. Mekke önemli bir ticaret ve din merkeziydi. Toplumda kabile ilişkileri önemli bir yere sahipti.</p>
+
+            <p>İslamiyet'in yayılmasıyla birlikte Müslüman topluluklar oluşmuş ve zamanla İslam medeniyeti gelişmiştir. Bu süreç siyasi, kültürel ve ekonomik alanlarda çeşitli değişimlerin yaşanmasına neden olmuştur.</p>
+
+            <p>İslam medeniyeti bilim ve düşünce alanında da önemli gelişmeler yaşamıştır. Matematik, astronomi, tıp, coğrafya ve felsefe gibi alanlarda çalışmalar yapılmıştır.</p>
+
+            <p>Farklı toplumlarla kurulan ilişkiler bilgi ve kültür alışverişini artırmıştır. Çeviri faaliyetleri bilimsel eserlerin farklı dillere aktarılmasına katkıda bulunmuştur.</p>
+
+            <p>İslam medeniyetinin gelişimini değerlendirirken yalnızca siyasi olaylara değil, bilim, sanat, eğitim ve kültür alanındaki gelişmelere de bakmak gerekir.</p>
+
+            <p>Bu konuyu çalışırken olayları kronolojik sıraya koymanız ve önemli gelişmeler arasındaki neden-sonuç ilişkilerini kurmanız konuyu anlamanızı kolaylaştıracaktır.</p>
+
+            <h4>5. Türklerin İslamiyet'i Kabulü</h4>
+
+            <p>Türklerin İslamiyet'i kabulü bir anda gerçekleşmemiş, farklı Türk topluluklarında farklı zamanlarda ortaya çıkan uzun bir süreç olmuştur. Türkler İslam dünyasıyla ticaret, savaş ve kültürel ilişkiler aracılığıyla temas kurmuşlardır.</p>
+
+            <p>Türklerin İslamiyet'i kabulünde siyasi ve ekonomik ilişkilerin yanında kültürel etkileşim de etkili olmuştur. İslamiyet'i kabul eden Türk toplulukları zamanla İslam medeniyetinin gelişimine katkı sağlamıştır.</p>
+
+            <p>Karahanlılar, İslamiyet'i kabul eden ilk Müslüman Türk devletlerinden biri olarak tarih açısından önemlidir. Karahanlılar döneminde Türkçe eserlerin yazılması da kültürel açıdan önem taşır.</p>
+
+            <p>Türklerin İslamiyet'i kabulünden sonra Türk devletlerinin siyasi yapısında ve kültürel hayatında bazı değişimler meydana gelmiştir. Ancak Türklerin eski kültürlerinden gelen bazı unsurlar da varlığını sürdürmüştür.</p>
+
+            <p>Türk-İslam kültürünün oluşmasında Türklerin kendi kültürel birikimleri ile İslam medeniyetinin değerlerinin etkileşimi etkili olmuştur.</p>
+
+            <p>Bu süreçte eğitim, bilim, sanat ve mimari alanlarında yeni gelişmeler yaşanmıştır. Türk-İslam devletleri farklı bölgelerde önemli kültürel eserler bırakmıştır.</p>
+
+            <p>Öğretmeniniz olarak sizden Türklerin İslamiyet'i kabulünü tek bir olay gibi değil, zaman içerisinde gerçekleşen bir süreç olarak değerlendirmenizi beklerim.</p>
+
+            <h4>6. Orta Çağ'da Dünya</h4>
+
+            <p>Orta Çağ'da Avrupa, Asya ve Afrika'da birbirinden farklı siyasi ve kültürel yapılar bulunuyordu. Bu dönemde çeşitli devletler kurulmuş, ticaret yolları gelişmiş ve toplumlar arasında etkileşimler yaşanmıştır.</p>
+
+            <p>Ticaret yolları devletlerin ekonomik ve siyasi gücünü etkileyen önemli unsurlardan biri olmuştur. İpek Yolu ve Baharat Yolu gibi yollar farklı bölgeler arasında mal ve kültür alışverişinin gerçekleşmesini sağlamıştır.</p>
+
+            <p>Orta Çağ toplumlarında tarım önemli bir ekonomik faaliyet olmuştur. Toprağın kullanımı, nüfusun yerleşimi ve siyasi yapıların oluşumu üzerinde etkili olmuştur.</p>
+
+            <p>Şehirler ticaret, zanaat ve kültürel faaliyetlerin merkezleri hâline gelebilmiştir. Ticaretin gelişmesi farklı toplumların birbirleriyle daha fazla iletişim kurmasını sağlamıştır.</p>
+
+            <p>Bilim ve kültür alanında farklı medeniyetler önemli çalışmalar gerçekleştirmiştir. Özellikle İslam dünyasında bilimsel çalışmaların geliştiği merkezler ortaya çıkmıştır.</p>
+
+            <p>Orta Çağ'ı değerlendirirken tek bir toplumun tarihine odaklanmak yerine farklı bölgelerdeki gelişmeleri birlikte düşünmek gerekir. Böylece dönemin genel özellikleri daha doğru anlaşılır.</p>
+
+            <p>Öğretmeniniz olarak sizden olayları tarih sırasına koymanızı ve farklı toplumların birbirleriyle olan ilişkilerini dikkate almanızı beklerim.</p>
+
+        </div>
+
+
+        <!-- COĞRAFYA -->
+        <div class="not aranabilir" id="cografya">
+
+            <h3>🌍 Coğrafya - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=85"
+                 alt="Dünya haritası">
+
+            <h4>1. Coğrafyanın Doğası</h4>
+
+            <p>Coğrafya, doğal çevre ile insan arasındaki ilişkiyi inceleyen bilim dallarından biridir. Yeryüzündeki doğal ve beşerî olayların nerede gerçekleştiği, neden gerçekleştiği ve birbirleriyle nasıl ilişkilendiği coğrafyanın temel konuları arasındadır.</p>
+
+            <p>Fiziki coğrafya doğal sistemleri inceler. İklim, yer şekilleri, sular, toprak ve bitki örtüsü gibi konular fiziki coğrafyanın çalışma alanları içerisinde yer alır.</p>
+
+            <p>Beşerî coğrafya ise insanların yeryüzündeki faaliyetlerini inceler. Nüfus, yerleşme, göç, tarım, sanayi ve ulaşım gibi konular beşerî coğrafyayla ilişkilidir.</p>
+
+            <p>Coğrafya olayları incelerken dağılış, neden-sonuç ve ilişki gibi temel düşünme biçimlerinden yararlanır. Bir olayın nerede görüldüğünü bilmek kadar neden orada görüldüğünü açıklamak da önemlidir.</p>
+
+            <p>Haritalar, grafikler, tablolar ve çeşitli dijital veriler coğrafya çalışmalarında kullanılır. Bu araçlar yeryüzündeki olayların daha kolay anlaşılmasını sağlar.</p>
+
+            <p>Coğrafyanın günlük yaşamla ilişkisi oldukça güçlüdür. Hava durumu, ulaşım, tarım, şehirlerin kuruluşu ve doğal afetlere hazırlık gibi birçok konuda coğrafi bilgilerden yararlanılır.</p>
+
+            <p>Öğretmeniniz olarak sizden coğrafyayı yalnızca yer isimlerini ezberlemek olarak görmemenizi beklerim. Asıl amaç, doğal ve beşerî olaylar arasındaki ilişkileri anlamaktır.</p>
+
+            <h4>2. Mekânsal Bilgi Teknolojileri</h4>
+
+            <p>Harita, yeryüzünün tamamının veya bir bölümünün belirli bir ölçek kullanılarak düzleme aktarılmasıdır. Haritalar sayesinde geniş alanları küçültülmüş ve düzenli biçimde inceleyebiliriz.</p>
+
+            <p>Ölçek, haritadaki uzunluğun gerçek uzunluğa oranını ifade eder. Ölçek bilgisi olmadan haritadaki bir uzunluğun gerçek hayatta ne kadar olduğunu doğru biçimde belirlemek mümkün değildir.</p>
+
+            <p>Haritalarda yön bulmak için çeşitli yöntemlerden yararlanılır. Kuzey, güney, doğu ve batı temel yönlerdir. Haritanın yönünün bilinmesi konumları doğru değerlendirmek açısından önemlidir.</p>
+
+            <p>Coğrafi Bilgi Sistemleri, konuma bağlı verilerin bilgisayar ortamında toplanmasını, düzenlenmesini ve analiz edilmesini sağlayan sistemlerdir. Günümüzde şehir planlaması ve ulaşım gibi birçok alanda kullanılabilir.</p>
+
+            <p>Uzaktan algılama, yeryüzü hakkında uzaktan veri elde edilmesini sağlayan yöntemlerle ilişkilidir. Uydu görüntüleri ve hava fotoğrafları bu konuda kullanılabilir.</p>
+
+            <p>Dijital haritalar günlük yaşamda da karşımıza çıkmaktadır. Yol bulma, konum belirleme ve çeşitli mekânsal bilgileri inceleme gibi işlemlerde dijital haritalardan yararlanabiliriz.</p>
+
+            <p>Bu konuda sizden harita, ölçek ve mekânsal bilgi teknolojileri arasındaki farkları öğrenmenizi beklerim. Bir haritayı incelerken başlık, ölçek, yön ve işaretler gibi unsurları mutlaka kontrol ediniz.</p>
+
+            <h4>3. Doğal Sistemler ve Süreçler</h4>
+
+            <p>Dünya üzerinde birçok doğal sistem birlikte çalışır. Atmosfer, hidrosfer, litosfer ve biyosfer birbirleriyle etkileşim hâlindedir. Bu sistemlerde meydana gelen değişimler diğer sistemleri de etkileyebilir.</p>
+
+            <p>Dünya'nın şekli geoit olarak ifade edilir. Dünya'nın şekli nedeniyle Güneş ışınlarının geliş açısı yeryüzünün her yerinde aynı değildir. Bu durum sıcaklık ve iklim özelliklerinin farklılaşmasında etkili olur.</p>
+
+            <p>Dünya kendi ekseni etrafında döner. Bu harekete günlük hareket denir. Günlük hareket sonucunda gece ve gündüz oluşur ve yerel saat farklılıkları meydana gelir.</p>
+
+            <p>Dünya'nın Güneş etrafındaki hareketine yıllık hareket denir. Dünya'nın ekseninin eğik olması ve yıllık hareket birlikte mevsimlerin oluşmasında etkili olur.</p>
+
+            <p>Atmosfer, Dünya'yı çevreleyen gaz tabakasıdır. Hava olayları atmosfer içerisinde gerçekleşir. Sıcaklık, basınç, rüzgâr ve nem gibi kavramlar atmosfer olaylarını anlamamız açısından önemlidir.</p>
+
+            <p>Su döngüsü de doğal sistemlerin önemli bir parçasıdır. Buharlaşma, yoğuşma, yağış ve yüzeysel akış gibi süreçler suyun doğadaki hareketini sağlar.</p>
+
+            <p>Öğretmeniniz olarak sizden doğal sistemleri birbirinden tamamen bağımsız düşünmemenizi beklerim. Atmosfer, su, toprak ve canlılar arasındaki ilişkileri birlikte değerlendirdiğinizde coğrafya konularını daha kolay anlayabilirsiniz.</p>
+
+            <h4>4. Beşerî Sistemler ve Süreçler</h4>
+
+            <p>Nüfus, belirli bir yerde yaşayan insan sayısını ifade eder. Nüfusun dağılışı dünya üzerinde eşit değildir. Bazı bölgelerde nüfus yoğunluğu fazla iken bazı bölgelerde oldukça azdır.</p>
+
+            <p>Nüfus dağılışını doğal ve beşerî faktörler etkiler. İklim, yer şekilleri ve su kaynakları doğal faktörlere; sanayi, ulaşım ve ekonomik faaliyetler ise beşerî faktörlere örnek verilebilir.</p>
+
+            <p>Nüfus yoğunluğu, belirli bir alanda yaşayan insan sayısının o alanın büyüklüğüne göre değerlendirilmesidir. Nüfus yoğunluğu hesaplamalarında nüfus ve yüz ölçümü bilgileri kullanılır.</p>
+
+            <p>Göç, insanların çeşitli nedenlerle bir yerden başka bir yere yer değiştirmesidir. Eğitim, iş, savaş, doğal afet ve ekonomik nedenler göçün sebepleri arasında bulunabilir.</p>
+
+            <p>Göçler geçici veya kalıcı olabilir. İnsanlar aynı ülke içerisinde başka bir şehre göç edebileceği gibi farklı ülkelere de göç edebilir.</p>
+
+            <p>Göç alan yerlerde nüfus artabilir ve şehirlerin yapısı değişebilir. Göç veren yerlerde ise nüfus azalması veya çalışma çağındaki nüfusun azalması gibi sonuçlar ortaya çıkabilir.</p>
+
+            <p>Bu konuda sizden nüfus ve göç olaylarını neden-sonuç ilişkisi içerisinde değerlendirmenizi beklerim. Bir göç olayının yalnızca nedenini değil, ortaya çıkarabileceği sonuçları da düşünmelisiniz.</p>
+
+            <h4>5. Ekonomik Faaliyetler</h4>
+
+            <p>İnsanların ihtiyaçlarını karşılamak amacıyla gerçekleştirdiği üretim, dağıtım ve tüketim faaliyetleri ekonomik faaliyetlerle ilişkilidir. Tarım, hayvancılık, sanayi, ticaret, ulaşım ve hizmetler ekonomik faaliyetlere örnektir.</p>
+
+            <p>Tarım faaliyetlerinin dağılışında iklim, toprak ve su kaynakları gibi doğal faktörler önemlidir. İnsanların kullandığı teknoloji ve sulama yöntemleri de tarımsal üretimi etkileyebilir.</p>
+
+            <p>Sanayi faaliyetleri ham maddelerin işlenerek çeşitli ürünlere dönüştürülmesini sağlar. Fabrikaların kuruluş yerinde ham madde, enerji, ulaşım, iş gücü ve pazar gibi faktörler etkili olabilir.</p>
+
+            <p>Ticaret ürünlerin üreticiden tüketiciye ulaşmasını sağlayan ekonomik faaliyetlerden biridir. Ulaşım ağlarının gelişmiş olması ticaretin yapılmasını kolaylaştırabilir.</p>
+
+            <p>Hizmet sektörü eğitim, sağlık, turizm, bankacılık ve çeşitli meslek hizmetlerini kapsayabilir. Günümüzde hizmet sektörünün ekonomik yapı içerisindeki önemi birçok yerde artmıştır.</p>
+
+            <p>Ekonomik faaliyetlerin çevre üzerinde de etkileri olabilir. Bu nedenle üretim yapılırken doğal kaynakların korunması ve çevreye verilen zararın azaltılması önemlidir.</p>
+
+            <p>Öğretmeniniz olarak sizden ekonomik faaliyetleri doğal çevreyle ilişkilendirmenizi beklerim. Bir ekonomik faaliyetin neden belirli bir bölgede geliştiğini açıklarken hem doğal hem de beşerî faktörleri düşününüz.</p>
+
+            <h4>6. Afetler ve Sürdürülebilir Çevre</h4>
+
+            <p>Afetler, toplumun günlük yaşamını önemli ölçüde etkileyebilen doğal veya insan kaynaklı olaylardır. Deprem, sel, heyelan, çığ ve kuraklık doğal afetlere örnek verilebilir.</p>
+
+            <p>Deprem, yer kabuğunda meydana gelen hareketler sonucunda oluşan sarsıntıdır. Depremin etkisini azaltmak için sağlam yapılaşma, doğru şehir planlaması ve afet hazırlığı büyük önem taşır.</p>
+
+            <p>Sel ve taşkınlar aşırı yağış, akarsu yatağının kapasitesinin aşılması veya yanlış arazi kullanımı gibi nedenlerle meydana gelebilir. Dere yataklarının yapılaşmaya açılması riskleri artırabilir.</p>
+
+            <p>Heyelan, eğimli arazilerde toprak ve kaya parçalarının yer çekiminin etkisiyle aşağı doğru hareket etmesidir. Yağış, eğim ve zemin özellikleri heyelan riskini etkileyebilir.</p>
+
+            <p>Sürdürülebilirlik, doğal kaynakların gelecek nesillerin ihtiyaçlarını da dikkate alarak kullanılması anlayışıdır. Su, enerji ve orman gibi kaynakların bilinçli kullanılması sürdürülebilirlik açısından önemlidir.</p>
+
+            <p>Afetlerin tamamını önlemek mümkün olmayabilir ancak riskleri azaltmak mümkündür. Eğitim, erken uyarı sistemleri, doğru yapılaşma ve afet planları bu konuda önem taşır.</p>
+
+            <p>Öğretmeniniz olarak sizden afetleri yalnızca isimleriyle öğrenmenizi değil, nedenlerini ve risk azaltma yollarını da anlamanızı beklerim. Afet bilinci günlük yaşamda herkes için önemlidir.</p>
+
+            <h4>7. Bölgeler, Ülkeler ve Küresel Bağlantılar</h4>
+
+            <p>Bölge, belirli ortak özelliklere sahip alanların bir araya getirilmesiyle oluşturulan coğrafi bir birimdir. Bölgeler doğal özelliklere veya insanların faaliyetlerine göre belirlenebilir.</p>
+
+            <p>Doğal bölgeler iklim, bitki örtüsü, yer şekilleri veya su özellikleri gibi faktörlere göre oluşturulabilir. Beşerî bölgelerde ise nüfus, ekonomik faaliyet veya kültürel özellikler dikkate alınabilir.</p>
+
+            <p>Ülkeler arasında ekonomik, siyasi, kültürel ve sosyal ilişkiler bulunabilir. Ulaşım ve iletişim teknolojilerinin gelişmesi bu ilişkilerin daha hızlı gerçekleşmesini sağlamıştır.</p>
+
+            <p>Küreselleşme, ülkeler ve toplumlar arasındaki bağlantıların artmasıyla ilişkilidir. Ürünler, bilgiler, kültürel unsurlar ve insanlar farklı ülkeler arasında daha hızlı hareket edebilir.</p>
+
+            <p>Bir ülkenin coğrafi konumu onun ekonomik ve siyasi ilişkilerini etkileyebilir. Denizlere, önemli ulaşım yollarına veya doğal kaynaklara yakınlık çeşitli avantajlar sağlayabilir.</p>
+
+            <p>Küresel bağlantılar ülkeler arasında karşılıklı bağımlılık oluşturabilir. Bir bölgede meydana gelen ekonomik veya doğal bir olay başka bölgeleri de etkileyebilir.</p>
+
+            <p>Bu konuda sizden dünyayı birbirinden tamamen bağımsız ülkelerden oluşan bir yapı olarak görmemenizi beklerim. Ülkeler arasındaki bağlantıları coğrafi konum, ekonomi ve ulaşım açısından değerlendirmek önemlidir.</p>
+
+        </div>
+
+
+        <!-- İNGİLİZCE -->
+        <div class="not aranabilir" id="ingilizce">
+
+            <h3>🇬🇧 İngilizce - 9. Sınıf</h3>
+
+            <img class="dersFoto"
+                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
+                 alt="İngilizce öğrenen öğrenciler">
+
+            <h4>Theme 1 - School Life</h4>
+
+            <p>Bu temada okul yaşamı ve öğrencilerin okul ortamındaki günlük faaliyetleri üzerinde durulur. Kendimizi tanıtmak, okul hakkında bilgi vermek ve sınıf arkadaşlarımızla iletişim kurmak için temel İngilizce ifadeleri öğreniriz.</p>
+
+            <p>Kendimizi tanıtırken adımızı, yaşımızı, nereden geldiğimizi ve okul hayatımızı anlatabiliriz. “My name is...” ve “I am a student...” gibi temel cümleler bu iletişim durumlarında kullanılabilir.</p>
+
+            <p>Okul derslerinden bahsederken mathematics, science, history, geography ve English gibi kelimeler kullanılabilir. Bir ders hakkında görüş belirtirken “I like...” veya “I don't like...” gibi yapılardan yararlanabiliriz.</p>
+
+            <p>Günlük okul rutinlerini anlatırken Simple Present Tense kullanılır. “I go to school at eight.” gibi cümlelerde düzenli olarak gerçekleşen bir olay anlatılır.</p>
+
+            <p>Tanışma sırasında “Nice to meet you.” gibi ifadeler kullanılabilir. Karşımızdaki kişiye uygun ve nazik ifadeler kullanmak İngilizce iletişim açısından önemlidir.</p>
+
+            <p>Bu temada amaç yalnızca kelime ezberlemek değildir. Öğrencinin okul ortamında kendisini tanıtabilmesi ve temel iletişim kurabilmesi hedeflenir.</p>
+
+            <p>Öğretmeniniz olarak sizden kelimeleri tek tek ezberlemek yerine kısa cümleler içinde kullanmanızı beklerim. Böyle çalışırsanız hem kelime bilginiz hem de cümle kurma beceriniz gelişir.</p>
+
+            <h4>Theme 2 - Classroom Life</h4>
+
+            <p>Classroom Life temasında sınıf ortamında kullanılan kelimeler ve günlük iletişim ifadeleri üzerinde durulur. Book, notebook, pencil, ruler ve desk gibi kelimeler sınıf eşyalarını anlatmak için kullanılabilir.</p>
+
+            <p>Sınıfta bir şey istemek veya izin almak için kibar ifadeler kullanmak gerekir. “Can I...?” yapısı izin istemek için temel yapılardan biridir.</p>
+
+            <p>There is ve There are yapıları sınıfta veya herhangi bir yerde bulunan nesneleri anlatmak için kullanılabilir. Tekil bir nesne için There is, çoğul nesneler için There are kullanılır.</p>
+
+            <p>Örneğin “There is a book on the desk.” cümlesinde masanın üzerinde bir kitap bulunduğu anlatılır. “There are two pencils in the bag.” cümlesinde ise çantada iki kalem bulunduğu belirtilir.</p>
+
+            <p>Sınıf yönergelerinde “Open your book.”, “Listen carefully.” ve “Write it down.” gibi ifadeler kullanılabilir. Bu ifadelerin anlamlarını bağlam içerisinde öğrenmek daha kolaydır.</p>
+
+            <p>Bu temada öğrencinin sınıf ortamındaki temel ihtiyaçlarını İngilizce ifade edebilmesi amaçlanır. Bu nedenle kısa ve doğru cümleler kurmak önemlidir.</p>
+
+            <p>Öğretmeniniz olarak sizden özellikle There is ve There are yapılarını karıştırmamanızı ve sınıf eşyalarını cümle içinde kullanmanızı beklerim.</p>
+
+            <h4>Theme 3 - Personal Life</h4>
+
+            <p>Personal Life temasında kişinin kendisini ve başka insanları tanıtması üzerinde durulur. Fiziksel özellikler ve kişilik özellikleri hakkında temel cümleler kurulabilir.</p>
+
+            <p>Tall, short, young ve old gibi kelimeler fiziksel özellikleri anlatmak için kullanılabilir. Friendly, helpful, honest ve shy gibi kelimeler ise kişilik özelliklerini ifade eder.</p>
+
+            <p>Bir kişiyi tanımlarken “He is friendly.” veya “She is helpful.” gibi cümleler kurulabilir. Burada özneye uygun zamirin ve yardımcı fiilin kullanılması önemlidir.</p>
+
+            <p>Simple Present Tense günlük alışkanlıkları ve genel durumları anlatmak için kullanılır. Örneğin “She studies every day.” cümlesinde düzenli olarak gerçekleşen bir eylem anlatılır.</p>
+
+            <p>İngilizcede üçüncü tekil şahıs olan he, she ve it ile fiillere çoğu zaman -s veya -es eki gelir. Bu nedenle cümle kurarken özneye dikkat etmek gerekir.</p>
+
+            <p>Kişileri anlatırken yalnızca görünüşlerine değil, davranışlarına ve kişilik özelliklerine de yer verilebilir. Böylece daha ayrıntılı tanımlamalar yapılabilir.</p>
+
+            <p>Öğretmeniniz olarak sizden yeni kelimeleri ezberlemek yerine onları kişi tanımlayan kısa cümlelerde kullanmanızı beklerim.</p>
+
+            <h4>Theme 4 - Family Life</h4>
+
+            <p>Family Life temasında aile bireyleri ve aile ilişkileri hakkında konuşmayı öğreniriz. Mother, father, sister, brother, grandmother ve grandfather gibi temel aile kelimeleri bu temanın önemli kelimeleridir.</p>
+
+            <p>Aile bireylerini tanıtırken possessive adjectives yani iyelik sıfatlarından yararlanabiliriz. My, your, his, her, our ve their kelimeleri bir şeyin kime ait olduğunu belirtmek için kullanılır.</p>
+
+            <p>Örneğin “This is my sister.” cümlesinde kişinin kendi kız kardeşinden bahsedilir. “Their house is big.” cümlesinde ise evin onlara ait olduğu belirtilir.</p>
+
+            <p>Have ve has yapıları sahiplik ifade etmek için kullanılabilir. I, you, we ve they ile have; he, she ve it ile has kullanılır.</p>
+
+            <p>Aile bireylerinin günlük hayatlarından bahsederken Simple Present Tense kullanılabilir. “My father works in a hospital.” cümlesinde babanın genel olarak yaptığı iş anlatılır.</p>
+
+            <p>Aile hakkında konuşurken cümlelerin özne ve fiil uyumuna dikkat etmek gerekir. Özellikle he ve she ile kullanılan fiillerde üçüncü tekil şahıs kuralı unutulmamalıdır.</p>
+
+            <p>Öğretmeniniz olarak sizden aile bireylerini tanıtırken öğrendiğiniz kelimeleri doğru cümle yapılarıyla kullanmanızı beklerim.</p>
+
+            <h4>Theme 5 - Life in the House & Neighbourhood</h4>
+
+            <p>Bu temada ev bölümleri, ev eşyaları ve mahallede bulunan yerler hakkında konuşulur. Kitchen, bedroom, bathroom, living room ve garden gibi kelimeler ev bölümlerini anlatmak için kullanılır.</p>
+
+            <p>Furniture kelimeleri arasında table, chair, sofa, bed ve wardrobe gibi sözcükler bulunur. Bu kelimeler odaları tanımlarken kullanılabilir.</p>
+
+            <p>There is ve There are yapıları evin içinde bulunan eşyaları anlatmak için kullanılabilir. “There is a sofa in the living room.” buna örnektir.</p>
+
+            <p>Mahallede bulunan places arasında school, hospital, supermarket, park ve library gibi yerler bulunabilir. Bu kelimeler yön tariflerinde de kullanılabilir.</p>
+
+            <p>Yön tariflerinde next to, between, opposite, near ve behind gibi ifadeler kullanılabilir. Bu kelimeler bir yerin başka bir yere göre konumunu açıklamaya yardımcı olur.</p>
+
+            <p>Adres veya yön tariflerinde cümlenin açık ve anlaşılır olması önemlidir. Önce başlangıç noktası belirlenmeli, daha sonra gidilecek yön ve önemli yerler anlatılmalıdır.</p>
+
+            <p>Öğretmeniniz olarak sizden ev bölümlerini ve mahalledeki yerleri kelime olarak bilmenin yanında basit cümlelerle tanımlayabilmenizi beklerim.</p>
+
+            <h4>Theme 6 - Life in the City & Country</h4>
+
+            <p>Bu temada şehir ve kırsal yaşam arasındaki farklılıklar üzerinde durulur. City, village, countryside, crowded, quiet ve modern gibi kelimeler bu konuyu anlatırken kullanılabilir.</p>
+
+            <p>Şehirlerde nüfus yoğunluğu, ulaşım ve hizmetler daha fazla olabilir. Kırsal alanlarda ise tarım ve hayvancılık gibi faaliyetler daha önemli olabilir.</p>
+
+            <p>Karşılaştırma yaparken comparative adjectives kullanılır. Big kelimesi bigger, small kelimesi smaller şeklinde kullanılabilir.</p>
+
+            <p>Uzun sıfatlarda ise genellikle more yapısından yararlanılır. Örneğin “more crowded” daha kalabalık anlamına gelir.</p>
+
+            <p>Ulaşım araçları da bu temanın önemli konularından biridir. Bus, train, bicycle, car ve subway gibi kelimeler ulaşım hakkında konuşurken kullanılabilir.</p>
+
+            <p>Bir şehri veya kırsal alanı anlatırken yalnızca fiziksel özellikleri değil, yaşam biçimini ve insanların günlük faaliyetlerini de değerlendirebiliriz.</p>
+
+            <p>Öğretmeniniz olarak sizden karşılaştırma yaparken bigger, smaller ve more crowded gibi yapıları doğru kullanmanızı beklerim.</p>
+
+            <h4>Theme 7 - Life in the World & Nature</h4>
+
+            <p>Bu temada doğa, çevre, hayvanlar ve doğal yaşam hakkında temel İngilizce ifadeler öğrenilir. Forest, river, mountain, sea ve desert gibi kelimeler doğal alanları tanımlamak için kullanılabilir.</p>
+
+            <p>Hayvanların yaşadığı yerlere habitat denir. Different animals live in different habitats. Örneğin bazı hayvanlar ormanlarda, bazıları denizlerde ve bazıları çöllerde yaşar.</p>
+
+            <p>Çevre sorunlarından bahsederken pollution, waste, climate ve recycling gibi kelimeler kullanılabilir. Bu kelimeleri kısa cümlelerle öğrenmek kelime bilgisini güçlendirir.</p>
+
+            <p>Can ve can't yapıları yetenek veya mümkün olma durumlarını ifade etmek için kullanılabilir. “Birds can fly.” cümlesinde kuşların uçabilme özelliği anlatılır.</p>
+
+            <p>Doğayı korumakla ilgili cümleler kurarken “We should protect nature.” gibi ifadeler kullanılabilir. Böylece çevre konusunda öneriler İngilizce ifade edilebilir.</p>
+
+            <p>Bu temada amaç doğa ile ilgili temel bilgileri İngilizce ifade edebilmek ve çevre konusunda basit iletişim kurabilmektir.</p>
+
+            <p>Öğretmeniniz olarak sizden doğa kelimelerini ezberlemekle yetinmeyip bu kelimeleri kısa ve anlamlı cümlelerde kullanmanızı beklerim.</p>
+
+            <h4>Theme 8 - Life in the Universe & Future</h4>
+
+            <p>Bu temada uzay, gezegenler ve gelecek hakkında konuşma üzerinde durulur. Planet, star, space, Earth ve Moon gibi kelimeler temel kelime bilgisinin önemli parçalarıdır.</p>
+
+            <p>Gelecek hakkında konuşurken will ve be going to yapılarıyla karşılaşırız. Will gelecekle ilgili tahminlerde kullanılabilirken be going to gelecek planları ve niyetleri ifade etmek için kullanılabilir.</p>
+
+            <p>Örneğin “I will study tomorrow.” cümlesinde geleceğe yönelik bir ifade bulunur. “I am going to visit my friend.” cümlesinde ise plan veya niyet belirtilir.</p>
+
+            <p>Gelecek hakkında konuşurken zaman ifadeleri de kullanılabilir. Tomorrow, next week, next year ve in the future gibi ifadeler gelecekle ilgili cümlelerde kullanılabilir.</p>
+
+            <p>Uzay konusunda gezegenlerin isimleri ve temel özellikleri hakkında basit cümleler kurulabilir. Bu bölümde amaç ileri düzey astronomi bilgisi değil, 9. sınıf düzeyinde temel İngilizce iletişim becerilerini geliştirmektir.</p>
+
+            <p>İngilizce öğrenirken gelecek zaman yapılarını yalnızca kurallarıyla değil, günlük yaşamdan örneklerle çalışmak daha faydalıdır. Planlarınızı ve tahminlerinizi kısa cümlelerle ifade etmeyi deneyebilirsiniz.</p>
+
+            <p>Öğretmeniniz olarak sizden will ve be going to arasındaki temel kullanım farkını anlamanızı ve gelecekle ilgili basit cümleler kurabilmenizi beklerim.</p>
+
+            <div class="onemli">
+                <b>Önemli:</b> İngilizcede cümle kurarken özne, yardımcı fiil ve ana fiilin kullanımına dikkat edilmelidir.
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section id="quiz">
+    <h2>🧠 9. Sınıf Mini Test</h2>
+
+    <div class="quiz">
+        <p><b>1. |-7| kaçtır?</b></p>
+        <label><input type="radio" name="s1" value="0"> -7</label>
+        <label><input type="radio" name="s1" value="1"> 7</label>
+        <label><input type="radio" name="s1" value="0"> 0</label>
+    </div>
+
+    <div class="quiz">
+        <p><b>2. Sürat hangi işlemle bulunur?</b></p>
+        <label><input type="radio" name="s2" value="1"> Yol / Zaman</label>
+        <label><input type="radio" name="s2" value="0"> Zaman / Yol</label>
+        <label><input type="radio" name="s2" value="0"> Yol × Zaman</label>
+    </div>
+
+    <div class="quiz">
+        <p><b>3. Atom numarası neyi gösterir?</b></p>
+        <label><input type="radio" name="s3" value="1"> Proton sayısını</label>
+        <label><input type="radio" name="s3" value="0"> Nötron sayısını</label>
+        <label><input type="radio" name="s3" value="0"> Molekül sayısını</label>
+    </div>
+
+    <div class="quiz">
+        <p><b>4. Canlıların temel yapı ve işlev birimi nedir?</b></p>
+        <label><input type="radio" name="s4" value="1"> Hücre</label>
+        <label><input type="radio" name="s4" value="0"> Doku</label>
+        <label><input type="radio" name="s4" value="0"> Organ</label>
+    </div>
+
+    <div class="quiz">
+        <p><b>5. Üçgenin iç açıları toplamı kaç derecedir?</b></p>
+        <label><input type="radio" name="s5" value="0"> 90°</label>
+        <label><input type="radio" name="s5" value="1"> 180°</label>
+        <label><input type="radio" name="s5" value="0"> 360°</label>
+    </div>
+
+    <div class="quiz">
+        <p><b>6. Dünya'nın kendi ekseni etrafındaki hareketi hangisidir?</b></p>
+        <label><input type="radio" name="s6" value="1"> Günlük hareket</label>
+        <label><input type="radio" name="s6" value="0"> Yıllık hareket</label>
+        <label><input type="radio" name="s6" value="0"> Göç hareketi</label>
+    </div>
+
+    <div id="sonuc"></div>
+</section>
+
+
+<section id="ipuclari">
+    <h2>💡 Ders Çalışma İpuçları</h2>
+
+    <div class="ipuclari">
+
+        <div class="ipucu">
+            <h3>📅 Düzenli Çalış</h3>
+            <p>Her gün kısa süreli tekrar yapmak, konuları son güne bırakmaktan daha etkilidir.</p>
+        </div>
+
+        <div class="ipucu">
+            <h3>📝 Not Çıkar</h3>
+            <p>Uzun cümleleri ezberlemek yerine anahtar kavramları ve önemli bilgileri yaz.</p>
+        </div>
+
+        <div class="ipucu">
+            <h3>❓ Soru Çöz</h3>
+            <p>Konuyu öğrendikten sonra farklı tipte sorular çözerek bilgini kontrol et.</p>
+        </div>
+
+        <div class="ipucu">
+            <h3>🔁 Tekrar Yap</h3>
+            <p>Öğrendiğin konuları belirli aralıklarla tekrar et.</p>
+        </div>
+
+        <div class="ipucu">
+            <h3>🧠 Yanlışlarını İncele</h3>
+            <p>Sadece doğru yaptığın sorulara değil, yanlış yaptığın sorulara da bak.</p>
+        </div>
+
+        <div class="ipucu">
+            <h3>☕ Mola Ver</h3>
+            <p>Uzun süre ara vermeden çalışmak yerine çalışma süresini küçük bölümlere ayır.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="hakkinda">
+    <h2>ℹ️ Hakkında</h2>
+
+    <div class="hakkinda">
+        <p>
+            Bu site 9. sınıf öğrencilerinin ders tekrarlarını kolaylaştırmak
+            amacıyla hazırlanmıştır.
+        </p>
+
+        <p>
+            Sitede Matematik, Fizik, Kimya, Biyoloji,
+            Türk Dili ve Edebiyatı, Tarih, Coğrafya ve İngilizce
+            dersleri için konu anlatımları bulunmaktadır.
+        </p>
+
+        <p>
+            Ders notları öğrenmeyi desteklemek amacıyla hazırlanmıştır.
+            Sınav hazırlığında öğretmenin verdiği notlar ve güncel ders
+            kitapları da dikkate alınmalıdır.
+        </p>
+    </div>
+</section>
+
+
+<footer>
+    <p>📚 9. Sınıf Ders Notları</p>
+    <p>Bilgi • Tekrar • Soru • Başarı</p>
+</footer>
+
+
+<a href="#bas" class="yukari">↑</a>
+
+
+<script>
+
+    function ara() {
+        let input = document.getElementById("aramaInput");
+        let aranan = input.value.toLowerCase();
+
+        let alanlar = document.querySelectorAll(".aranabilir");
+
+        alanlar.forEach(function(alan) {
+
+            let metin = alan.innerText.toLowerCase();
+
+            if (metin.includes(aranan)) {
+                alan.style.display = "";
+            } else {
+                alan.style.display = "none";
+            }
+
+        });
+    }
+
+
+    function cevapGoster(id) {
+
+        let cevap = document.getElementById(id);
+
+        if (cevap.style.display === "block") {
+            cevap.style.display = "none";
+        } else {
+            cevap.style.display = "block";
+        }
+
+    }
+
+
+    function quizKontrol() {
+
+        let sorular = [
+            "s1",
+            "s2",
+            "s3",
+            "s4",
+            "s5",
+            "s6"
+        ];
+
+        let puan = 0;
+
+        sorular.forEach(function(soru) {
+
+            let cevap = document.querySelector(
+                'input[name="' + soru + '"]:checked'
+            );
+
+            if (cevap && cevap.value === "1") {
+                puan++;
+            }
+
+        });
+
+        let sonuc = document.getElementById("sonuc");
+
+        sonuc.innerHTML =
+            "Sonucun: " + puan + " / " + sorular.length;
+
+        if (puan === sorular.length) {
+            sonuc.innerHTML += " 🎉 Hepsi doğru!";
+        }
+        else if (puan >= 4) {
+            sonuc.innerHTML += " 👍 Gayet iyi!";
+        }
+        else if (puan >= 2) {
+            sonuc.innerHTML += " 📚 Biraz daha tekrar yapabilirsin.";
+        }
+        else {
+            sonuc.innerHTML += " 🔁 Konuları tekrar etmen iyi olur.";
+        }
+    }
+
+</script>
+
+</body>
+</html>
